@@ -1,35 +1,28 @@
-# Base image for building
-FROM node:24-alpine AS base
+# Base image with Bun for building
+FROM oven/bun:alpine AS base
 
-# Install dependencies only when needed
+# Install dependencies
 FROM base AS deps
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
+COPY package.json ./
+RUN bun install
 
-# Rebuild the source code only when needed
+# Build the application
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN npm run build
+RUN bun run build
 
-# Production dependencies stage
-FROM base AS prod-deps
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --omit=dev || npm install --omit=dev || true
-RUN mkdir -p node_modules
-
-# Production runner stage - Using bare Alpine for minimum size
+# Runner stage - Minimal Alpine for the smallest possible footprint
 FROM alpine:3.20 AS runner
 WORKDIR /app
 
-# Install minimal runtime dependencies for Node.js
+# Install minimal runtime dependencies for Bun (libstdc++ and libgcc)
 RUN apk add --no-cache libstdc++ libgcc
 
-# Copy the Node.js binary from the official image
-COPY --from=node:24-alpine /usr/local/bin/node /usr/local/bin/node
+# Copy the Bun binary from the official image
+COPY --from=oven/bun:alpine /usr/local/bin/bun /usr/local/bin/bun
 
 ENV NODE_ENV=production
 ENV PORT=8080
@@ -39,11 +32,11 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 sveltekit
 
 COPY --from=builder /app/build ./build
-COPY --from=prod-deps /app/node_modules ./node_modules
-COPY package.json .
+COPY --from=builder /app/package.json .
 
 USER sveltekit
 
 EXPOSE 8080
 
-CMD ["node", "build/index.js"]
+# Execute with Bun for maximum performance and minimum overhead
+CMD ["/usr/local/bin/bun", "run", "build/index.js"]
