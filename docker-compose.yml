@@ -1,7 +1,10 @@
+name: fizz-buzz
+
 services:
-  fizz-buzz:
-    build: .
-    image: fizz-buzz:latest
+  web:
+    build:
+      context: .
+    image: fizz-buzz/web:latest
     ports:
       - '8080:8080'
     environment:
