@@ -30,47 +30,30 @@ A local-first game where you must keep playing as long as you have time.
 
 ## Test with Local Docker
 
-Before deploying to the cloud, you can test the production build locally using Docker to ensure everything is configured correctly.
+Before deploying to the cloud, you can test the production build locally using Docker Compose to ensure everything is configured correctly.
 
 ### Prerequisites
 
-- [Docker](https://docs.docker.com/get-docker/) installed on your machine.
+- [Docker](https://docs.docker.com/get-docker/) and **Docker Compose** installed on your machine.
 
 ### Steps
 
-**Option A: Using npm scripts (Easiest)**
+1. **Build and Start:**
+   Run these commands in the project root directory:
 
-1. **Build and Run:**
    ```bash
    npm run docker:build
-   npm run docker:run
+   npm run docker:up
    ```
 
-**Option B: Using Docker Compose**
+2. **Verify:**
+   Open your browser and navigate to `http://localhost:8080`. You should see the game running.
 
-1. **Start the app:**
+3. **Stop the Container:**
+   Press `Ctrl+C` or run:
    ```bash
-   docker-compose up --build
+   npm run docker:down
    ```
-
-**Option C: Manual commands**
-
-1. **Build the Docker image:**
-   Run this command in the project root directory. This uses the provided `Dockerfile` to build the app.
-
-   ```bash
-   docker build -t fizz-buzz .
-   ```
-
-2. **Run the Docker container:**
-   Start the container and map port 8080 from the container to your local machine.
-
-   ```bash
-   docker run -p 8080:8080 fizz-buzz
-   ```
-
-3. **Verify:**
-   Open your browser and navigate to `http://localhost:8080`. You should see the game running. Stop the container with `Ctrl+C` when done.
 
 ## Deployment to Google Cloud Run
 
