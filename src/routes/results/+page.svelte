@@ -1,6 +1,11 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { gameState } from '$lib/state.svelte';
+	import { Button } from '$lib/components/ui/button';
+	import * as Card from '$lib/components/ui/card';
+	import * as Table from '$lib/components/ui/table';
+	import { Badge } from '$lib/components/ui/badge';
+	import ArrowLeft from '@lucide/svelte/icons/arrow-left';
 
 	function formatDate(isoString: string) {
 		return new Date(isoString).toLocaleString(undefined, {
@@ -18,65 +23,54 @@
 	}
 </script>
 
-<div class="space-y-8">
+<div class="flex flex-col gap-8">
 	<div class="flex items-center justify-between">
-		<h1 class="text-4xl font-extrabold text-slate-800">History</h1>
-		<a
-			href={resolve('/')}
-			class="flex items-center gap-2 font-semibold text-indigo-600 hover:text-indigo-700"
-		>
-			<span>&larr;</span> Back to Home
-		</a>
+		<h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight text-foreground">History</h1>
+		<Button href={resolve('/')} variant="ghost" class="gap-2">
+			<ArrowLeft class="size-4" />
+			Back to Home
+		</Button>
 	</div>
 
 	{#if gameState.history.length === 0}
-		<div class="rounded-2xl border border-slate-100 bg-white p-12 text-center shadow-sm">
-			<p class="text-lg text-slate-400">No games played yet. Go set some records!</p>
-			<a
-				href={resolve('/game')}
-				class="mt-6 inline-block rounded-xl bg-indigo-600 px-8 py-3 font-bold text-white transition-colors hover:bg-indigo-700"
-			>
-				Play Now
-			</a>
-		</div>
+		<Card.Root class="p-12 text-center">
+			<Card.Content class="flex flex-col items-center gap-6">
+				<p class="text-lg text-muted-foreground">No games played yet. Go set some records!</p>
+				<Button href={resolve('/game')} size="lg" class="font-bold">Play Now</Button>
+			</Card.Content>
+		</Card.Root>
 	{:else}
-		<div class="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm">
-			<table class="w-full text-left">
-				<thead class="border-b border-slate-100 bg-slate-50">
-					<tr>
-						<th class="px-6 py-4 text-xs font-bold tracking-widest text-slate-400 uppercase"
-							>Date</th
-						>
-						<th
-							class="px-6 py-4 text-right text-xs font-bold tracking-widest text-slate-400 uppercase"
-							>Score</th
-						>
-					</tr>
-				</thead>
-				<tbody class="divide-y divide-slate-50">
+		<Card.Root>
+			<Table.Root>
+				<Table.Header>
+					<Table.Row>
+						<Table.Head class="w-50 font-bold tracking-widest uppercase">Date</Table.Head>
+						<Table.Head class="text-right font-bold tracking-widest uppercase">Score</Table.Head>
+					</Table.Row>
+				</Table.Header>
+				<Table.Body>
 					{#each gameState.history as record (record.date)}
-						<tr class="transition-colors hover:bg-slate-50">
-							<td class="px-6 py-4 text-slate-600">{formatDate(record.date)}</td>
-							<td class="px-6 py-4 text-right">
-								<span
-									class="inline-block rounded-full bg-indigo-50 px-3 py-1 font-bold text-indigo-700"
-								>
+						<Table.Row>
+							<Table.Cell class="text-muted-foreground">{formatDate(record.date)}</Table.Cell>
+							<Table.Cell class="text-right">
+								<Badge variant="secondary" class="text-base font-bold">
 									{record.score}
-								</span>
-							</td>
-						</tr>
+								</Badge>
+							</Table.Cell>
+						</Table.Row>
 					{/each}
-				</tbody>
-			</table>
-		</div>
+				</Table.Body>
+			</Table.Root>
+		</Card.Root>
 
 		<div class="flex justify-center pt-4">
-			<button
+			<Button
+				variant="link"
 				onclick={handleClear}
-				class="text-sm font-medium text-red-400 transition-colors hover:text-red-600"
+				class="font-medium text-destructive hover:text-destructive/80"
 			>
 				Clear History & Reset High Score
-			</button>
+			</Button>
 		</div>
 	{/if}
 </div>
