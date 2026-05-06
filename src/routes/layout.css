@@ -2,6 +2,8 @@
 @import 'tw-animate-css';
 @import 'shadcn-svelte/tailwind.css';
 @import '@fontsource-variable/geist-mono';
+@import '@fontsource-variable/space-grotesk';
+@import '@fontsource/archivo-black';
 
 @custom-variant dark (&:is(.dark *));
 @plugin '@tailwindcss/forms';
@@ -58,7 +60,7 @@
 
 @theme {
 	--font-head: 'Archivo Black', sans-serif;
-	--font-sans: 'Space Grotesk', sans-serif;
+	--font-sans: 'Space Grotesk Variable', sans-serif;
 	--font-mono: 'Geist Mono Variable', monospace;
 
 	--color-background: var(--background);

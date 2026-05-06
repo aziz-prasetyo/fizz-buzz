@@ -44,9 +44,11 @@
 						></div>
 					</span>
 				</h1>
-				<p class="max-w-md font-sans text-xl font-bold leading-tight text-muted-foreground md:text-2xl">
+				<p
+					class="max-w-md font-sans text-xl leading-tight font-bold text-muted-foreground md:text-2xl"
+				>
 					The ultimate mathematical survival challenge. <br />
-					<span class="text-foreground decoration-destructive underline decoration-4"
+					<span class="text-foreground underline decoration-destructive decoration-4"
 						>Decide fast. Survive longer.</span
 					>
 				</p>
@@ -80,7 +82,7 @@
 				class="group relative flex size-96 flex-col items-center justify-center border-8 border-black bg-white shadow-retro-lg transition-transform hover:rotate-2"
 			>
 				<div
-					class="absolute -top-12 -right-12 z-20 flex size-24 animate-spin-slow items-center justify-center border-4 border-black bg-primary font-head text-4xl shadow-retro"
+					class="animate-spin-slow absolute -top-12 -right-12 z-20 flex size-24 items-center justify-center border-4 border-black bg-primary font-head text-4xl shadow-retro"
 				>
 					3?
 				</div>
@@ -91,14 +93,18 @@
 					<RocketIcon class="size-10" />
 				</div>
 
-				<div class="flex h-64 w-64 flex-col border-4 border-black bg-secondary p-4 shadow-inner overflow-hidden relative">
+				<div
+					class="relative flex h-64 w-64 flex-col overflow-hidden border-4 border-black bg-secondary p-4 shadow-inner"
+				>
 					<div class="mb-4 flex gap-2">
 						<div class="size-3 rounded-full bg-destructive"></div>
 						<div class="size-3 rounded-full bg-primary"></div>
 						<div class="size-3 rounded-full bg-success"></div>
 					</div>
 
-					<div class="flex flex-1 flex-col justify-center space-y-4 font-head uppercase relative z-10">
+					<div
+						class="relative z-10 flex flex-1 flex-col justify-center space-y-4 font-head uppercase"
+					>
 						<div class="animate-pulse text-2xl text-primary">READY?</div>
 						<div class="text-4xl text-white">SYSTEM</div>
 						<div class="flex gap-2">
@@ -107,12 +113,14 @@
 							</div>
 						</div>
 					</div>
-                    
-                    <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
-                        {#if mounted}
-                            <div class="absolute inset-0 bg-[linear-gradient(transparent_0%,rgba(255,255,255,0.1)_50%,transparent_100%)] bg-[length:100%_4px] animate-[scanline_4s_linear_infinite]"></div>
-                        {/if}
-                    </div>
+
+					<div class="pointer-events-none absolute inset-0 z-0 opacity-20">
+						{#if mounted}
+							<div
+								class="absolute inset-0 animate-[scanline_4s_linear_infinite] bg-[linear-gradient(transparent_0%,rgba(255,255,255,0.1)_50%,transparent_100%)] bg-[length:100%_4px]"
+							></div>
+						{/if}
+					</div>
 				</div>
 			</div>
 
@@ -122,7 +130,7 @@
 				FIZZ = %3
 			</div>
 			<div
-				class="absolute bottom-10 right-10 border-2 border-black bg-white px-4 py-2 font-head text-xs shadow-retro transition-all hover:rotate-6"
+				class="absolute right-10 bottom-10 border-2 border-black bg-white px-4 py-2 font-head text-xs shadow-retro transition-all hover:rotate-6"
 			>
 				BUZZ = %5
 			</div>

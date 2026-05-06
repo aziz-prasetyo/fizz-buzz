@@ -7,6 +7,7 @@
 	import TrophyIcon from '@lucide/svelte/icons/trophy';
 	import HistoryIcon from '@lucide/svelte/icons/history';
 	import PlayIcon from '@lucide/svelte/icons/play';
+	import { resolve } from '$app/paths';
 
 	let { children } = $props();
 </script>
@@ -29,7 +30,7 @@
 	<header class="relative z-30 border-b-2 border-black bg-background p-3 shadow-sm md:p-4">
 		<div class="mx-auto flex max-w-6xl items-center justify-between">
 			<a
-				href="/"
+				href={resolve('/')}
 				class="inline-flex items-center gap-2 border-2 border-black bg-primary px-3 py-1 font-head text-[10px] shadow-retro transition-transform hover:scale-105 active:scale-95 md:text-xs"
 			>
 				<span class="animate-pulse text-black">●</span> ARCADE SYSTEM v1.0.5
