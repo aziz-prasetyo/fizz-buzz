@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
 	import { gameState } from '$lib/state.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
@@ -26,8 +25,8 @@
 <div class="flex flex-col gap-8">
 	<div class="flex items-center justify-between">
 		<h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight text-foreground">History</h1>
-		<Button href={resolve('/')} variant="ghost" class="gap-2">
-			<ArrowLeft class="size-4" />
+		<Button href="/" variant="ghost">
+			<ArrowLeft data-icon="inline-start" />
 			Back to Home
 		</Button>
 	</div>
@@ -36,15 +35,15 @@
 		<Card.Root class="p-12 text-center">
 			<Card.Content class="flex flex-col items-center gap-6">
 				<p class="text-lg text-muted-foreground">No games played yet. Go set some records!</p>
-				<Button href={resolve('/game')} size="lg" class="font-bold">Play Now</Button>
+				<Button href="/game" size="lg" class="font-bold">Play Now</Button>
 			</Card.Content>
 		</Card.Root>
 	{:else}
-		<Card.Root>
+		<Card.Root class="overflow-hidden">
 			<Table.Root>
 				<Table.Header>
 					<Table.Row>
-						<Table.Head class="w-50 font-bold tracking-widest uppercase">Date</Table.Head>
+						<Table.Head class="font-bold tracking-widest uppercase">Date</Table.Head>
 						<Table.Head class="text-right font-bold tracking-widest uppercase">Score</Table.Head>
 					</Table.Row>
 				</Table.Header>
@@ -53,7 +52,7 @@
 						<Table.Row>
 							<Table.Cell class="text-muted-foreground">{formatDate(record.date)}</Table.Cell>
 							<Table.Cell class="text-right">
-								<Badge variant="secondary" class="text-base font-bold">
+								<Badge variant="secondary" class="font-bold">
 									{record.score}
 								</Badge>
 							</Table.Cell>
@@ -67,7 +66,7 @@
 			<Button
 				variant="link"
 				onclick={handleClear}
-				class="font-medium text-destructive hover:text-destructive/80"
+				class="text-destructive hover:text-destructive/80"
 			>
 				Clear History & Reset High Score
 			</Button>

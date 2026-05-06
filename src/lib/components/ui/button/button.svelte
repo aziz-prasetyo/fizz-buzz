@@ -49,6 +49,10 @@
 </script>
 
 <script lang="ts">
+	/* eslint-disable svelte/no-navigation-without-resolve */
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
+
 	let {
 		class: className,
 		variant = 'default',
@@ -60,6 +64,14 @@
 		children,
 		...restProps
 	}: ButtonProps = $props();
+
+	const resolvedHref = $derived.by(() => {
+		if (disabled || !href) return undefined;
+		if (href.startsWith('/')) {
+			return resolve(href as Pathname);
+		}
+		return href;
+	});
 </script>
 
 {#if href}
@@ -67,7 +79,7 @@
 		bind:this={ref}
 		data-slot="button"
 		class={cn(buttonVariants({ variant, size }), className)}
-		href={disabled ? undefined : href}
+		href={resolvedHref}
 		aria-disabled={disabled}
 		role={disabled ? 'link' : undefined}
 		tabindex={disabled ? -1 : undefined}

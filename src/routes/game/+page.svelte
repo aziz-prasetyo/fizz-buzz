@@ -15,11 +15,11 @@
 <div class="flex flex-col items-center gap-12 py-8">
 	<!-- Header / Stats -->
 	<div class="flex w-full items-center justify-between">
-		<div class="text-left">
+		<div class="flex flex-col gap-1">
 			<div class="text-xs font-bold tracking-widest text-muted-foreground uppercase">Score</div>
 			<div class="text-4xl font-black text-foreground">{game.score}</div>
 		</div>
-		<div class="text-right">
+		<div class="flex flex-col gap-1 text-right">
 			<div class="text-xs font-bold tracking-widest text-muted-foreground uppercase">Time</div>
 			<div
 				class={cn(
@@ -39,9 +39,9 @@
 	<div class="flex flex-1 items-center justify-center py-12">
 		<div
 			class={cn(
-				'text-8xl font-black text-foreground transition-transform duration-200',
-				game.feedback === 'correct' && 'scale-110 text-green-500',
-				game.feedback === 'wrong' && 'shake text-destructive'
+				'text-8xl font-black text-foreground transition-all duration-200',
+				game.feedback === 'correct' && 'scale-110 text-success',
+				game.feedback === 'wrong' && 'animate-shake text-destructive'
 			)}
 		>
 			{#if game.isGameOver}
@@ -59,28 +59,10 @@
 				variant="outline"
 				onclick={() => game.handleAnswer(option)}
 				disabled={game.isGameOver}
-				class="h-auto px-4 py-8 text-2xl font-bold transition-all hover:border-primary hover:text-primary"
+				class="h-auto px-4 py-8 text-2xl font-bold transition-all hover:border-primary hover:text-primary active:scale-95"
 			>
 				{option === 'Number' ? '#' : option}
 			</Button>
 		{/each}
 	</div>
 </div>
-
-<style>
-	@keyframes shake {
-		0%,
-		100% {
-			transform: translateX(0);
-		}
-		25% {
-			transform: translateX(-10px);
-		}
-		75% {
-			transform: translateX(10px);
-		}
-	}
-	.shake {
-		animation: shake 0.2s ease-in-out 0s 2;
-	}
-</style>
