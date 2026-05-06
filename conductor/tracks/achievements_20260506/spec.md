@@ -15,6 +15,6 @@ Add long-term progression to the Fizz Buzz game by tracking user milestones and 
 - Ensure all logic has >95% test coverage.
 
 ## Acceptance Criteria
-- [ ] Level increases correctly based on XP.
-- [ ] Achievements unlock only once.
-- [ ] Profile page reflects real data from `localStorage`.
+- [x] Level increases correctly based on XP.
+- [x] Achievements unlock only once.
+- [x] Profile page reflects real data from `localStorage`.
