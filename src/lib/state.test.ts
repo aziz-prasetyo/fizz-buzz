@@ -48,4 +48,20 @@ describe('GameState logic', () => {
 		(gameState as any).xpProgress = (((gameState as any).xp % 1000) / 1000) * 100;
         expect((gameState as any).xpProgress).toBe(50); // 500/1000
     });
+
+	it('should clear history and reset state', () => {
+		gameState.addGame(100);
+		gameState.unlockAchievement('test');
+		expect(gameState.history.length).toBe(1);
+		expect(gameState.highScore).toBe(100);
+		expect(gameState.xp).toBe(1000);
+		expect(gameState.achievements).toContain('test');
+
+		gameState.clearHistory();
+		expect(gameState.history.length).toBe(0);
+		expect(gameState.highScore).toBe(0);
+		expect(gameState.xp).toBe(0);
+		expect(gameState.achievements.length).toBe(0);
+		expect(gameState.notificationQueue.length).toBe(0);
+	});
 });

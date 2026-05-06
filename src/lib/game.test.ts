@@ -87,4 +87,27 @@ describe('GameSession Combo System', () => {
 
 		game.destroy();
 	});
+
+	it('should end game when timer reaches zero', async () => {
+		const game = new GameSession();
+		(game as any).timeLeft = 0.1;
+		
+		// Wait for timer to tick (100ms)
+		await new Promise(resolve => setTimeout(resolve, 150));
+		
+		expect(game.isGameOver).toBe(true);
+		game.destroy();
+	});
+
+	it('should trigger end game achievements', () => {
+		const game = new GameSession();
+		const spy = spyOn(gameState, 'unlockAchievement');
+		
+		game.score = 50;
+		(game as any).endGame();
+		
+		expect(spy).toHaveBeenCalledWith('first_game');
+		expect(spy).toHaveBeenCalledWith('high_scorer');
+		game.destroy();
+	});
 });

@@ -11,6 +11,6 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Verify and Complete Scoring Track Acceptance Criteria**
+- [x] **Track: Verify and Complete Scoring Track Acceptance Criteria**
   *Link: [./tracks/verify_scoring_20260506/](./tracks/verify_scoring_20260506/)*
 

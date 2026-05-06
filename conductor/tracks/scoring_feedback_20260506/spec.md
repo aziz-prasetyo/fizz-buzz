@@ -18,7 +18,7 @@ Enhance the Fizz Buzz game with a dynamic scoring system and high-impact visual 
 - Ensure all states are persisted to `localStorage` via the existing state management.
 
 ## Acceptance Criteria
-- [ ] Combo counter resets on wrong answer or timer expiry.
-- [ ] Score increases exponentially with higher combos.
-- [ ] Visual effects are performant and don't lag on mobile.
-- [ ] Test coverage for scoring logic exceeds 95%.
+- [x] Combo counter resets on wrong answer or timer expiry.
+- [x] Score increases exponentially with higher combos.
+- [x] Visual effects are performant and don't lag on mobile.
+- [x] Test coverage for scoring logic exceeds 95%.
