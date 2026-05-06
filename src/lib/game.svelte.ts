@@ -7,6 +7,8 @@ export type Answer = 'Number' | 'Fizz' | 'Buzz' | 'FizzBuzz';
 export class GameSession {
 	currentNumber = $state(1);
 	score = $state(0);
+	combo = $state(0);
+	multiplier = $derived(1 + Math.floor(this.combo / 3));
 	timeLeft = $state(10);
 	isGameOver = $state(false);
 	feedback = $state<'correct' | 'wrong' | null>(null);
@@ -53,11 +55,13 @@ export class GameSession {
 		const correctValue = this.getFizzBuzzValue(this.currentNumber);
 
 		if (answer === correctValue) {
-			this.score++;
+			this.score += this.multiplier;
+			this.combo++;
 			this.currentNumber++;
 			this.timeLeft = this.INITIAL_TIME;
 			this.showFeedback('correct');
 		} else {
+			this.combo = 0;
 			this.timeLeft = Math.max(0, this.timeLeft - this.PENALTY);
 			this.showFeedback('wrong');
 			if (this.timeLeft <= 0) {

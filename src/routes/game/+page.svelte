@@ -2,6 +2,7 @@
 	import { GameSession, type Answer } from '$lib/game.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { Progress } from '$lib/components/ui/progress';
+	import FeedbackLayer from '$lib/components/feedback-layer.svelte';
 	import { cn } from '$lib/utils';
 
 	const game = new GameSession();
@@ -12,25 +13,39 @@
 	});
 </script>
 
-<div class="flex flex-col items-center gap-10 py-4 md:gap-16">
+<div class="relative flex min-h-screen flex-col items-center gap-10 py-4 md:gap-16">
+	<FeedbackLayer {game} />
 	<!-- Header / Stats -->
-	<div class="flex w-full items-end justify-between border-b-4 border-black pb-6">
-		<div class="flex flex-col gap-2">
+	<div class="relative z-10 grid w-full grid-cols-3 items-end border-b-4 border-black pb-6">
+		<div class="flex flex-col gap-1">
 			<div class="font-head text-[10px] tracking-widest text-muted-foreground uppercase">Score</div>
-			<div class="font-head text-5xl text-foreground tabular-nums">
+			<div class="font-head text-4xl text-foreground tabular-nums md:text-5xl">
 				{game.score.toString().padStart(3, '0')}
 			</div>
 		</div>
 
-		<div class="flex flex-col items-center gap-1">
-			<div
-				class="text-center font-head text-[10px] tracking-widest text-muted-foreground uppercase"
-			>
+		<div class="flex flex-col items-center pb-1">
+			{#if game.combo > 0}
+				<div
+					class="flex items-center gap-1 font-head text-sm text-primary italic whitespace-nowrap md:gap-2 md:text-xl"
+				>
+					<span>Combo {game.combo}</span>
+					{#if game.multiplier > 1}
+						<span class="rounded-sm bg-black px-1.5 py-0.5 text-[10px] text-white not-italic md:px-2 md:text-xs"
+							>x{game.multiplier}</span
+						>
+					{/if}
+				</div>
+			{/if}
+		</div>
+
+		<div class="flex flex-col items-end gap-1">
+			<div class="font-head text-[10px] tracking-widest text-muted-foreground uppercase">
 				Time Left
 			</div>
 			<div
 				class={cn(
-					'min-w-[140px] border-4 border-black bg-secondary px-4 py-2 text-center font-head text-6xl tabular-nums',
+					'min-w-[80px] border-4 border-black bg-secondary px-2 py-1 text-center font-head text-3xl tabular-nums md:min-w-[140px] md:px-4 md:py-2 md:text-6xl',
 					game.timeLeft < 3 ? 'animate-pulse text-destructive' : 'text-primary'
 				)}
 			>
@@ -40,12 +55,12 @@
 	</div>
 
 	<!-- Progress Bar -->
-	<div class="w-full border-2 border-black bg-white p-1 shadow-[4px_4px_0_0_#000]">
+	<div class="relative z-10 w-full border-2 border-black bg-white p-1 shadow-[4px_4px_0_0_#000]">
 		<Progress value={game.progress} class="h-6" />
 	</div>
 
 	<!-- Main Question -->
-	<div class="flex min-h-[240px] flex-1 items-center justify-center py-8">
+	<div class="relative z-10 flex min-h-[240px] flex-1 items-center justify-center py-8">
 		<div
 			class={cn(
 				'font-head text-9xl text-foreground transition-all duration-100',
@@ -68,7 +83,7 @@
 	</div>
 
 	<!-- Input Buttons -->
-	<div class="grid w-full max-w-lg grid-cols-2 gap-6 md:gap-8">
+	<div class="relative z-10 grid w-full max-w-lg grid-cols-2 gap-6 md:gap-8">
 		{#each options as option (option)}
 			<Button
 				variant={option === 'Fizz'
