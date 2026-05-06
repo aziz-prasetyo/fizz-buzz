@@ -10,6 +10,7 @@ This skill provides expert guidance on implementing a high-contrast, bold, and t
 ## Component Workflow
 
 ALWAYS follow this sequence when adding or updating UI elements:
+
 1. **Identify**: Determine if the required component exists in the project.
 2. **Install**: If it does not exist, install the base version from **shadcn-svelte** using `npx shadcn-svelte@latest add <component>`.
 3. **Reference**: Consult **[retroui.dev](https://retroui.dev/docs/install)** for the corresponding React/Base UI implementation.
@@ -51,7 +52,7 @@ Ensure hard shadows are defined to override standard blur-heavy defaults:
 ```css
 @theme {
 	--shadow-retro: 4px 4px 0 0 var(--border);
-	
+
 	/* Hard Shadows (Zero Blur) */
 	--shadow-sm: 2px 2px 0 0 var(--border);
 	--shadow: 4px 4px 0 0 var(--border);
@@ -63,10 +64,13 @@ Ensure hard shadows are defined to override standard blur-heavy defaults:
 ## Implementation Checklist
 
 ### 1. Missing Components
+
 If the user asks for a `Input`, `Slider`, or `Dialog` that isn't in `src/lib/components/ui/`, you MUST run the shadcn-svelte install command first.
 
 ### 2. Manual Conversion
+
 When converting from retroui.dev:
+
 - Map `cva` variants to `tailwind-variants` (`tv`).
 - Ensure `active:` states include both translation and shadow removal.
 - Use `font-head` for button text and headers.

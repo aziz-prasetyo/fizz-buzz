@@ -9,7 +9,7 @@
 
 :root {
 	--radius: 0rem;
-	--background: oklch(1 0 0); /* #ffffff */
+	--background: oklch(0.98 0.01 90); /* Slightly darker than white */
 	--foreground: oklch(0 0 0); /* #000000 */
 	--card: oklch(1 0 0);
 	--card-foreground: oklch(0 0 0);
@@ -104,7 +104,28 @@
 	}
 	body {
 		@apply bg-background font-sans text-foreground;
+		scrollbar-width: thin;
+		scrollbar-color: var(--primary) var(--background);
 	}
+
+	/* Scrollbar styling */
+	::-webkit-scrollbar {
+		width: 10px;
+		height: 10px;
+	}
+	::-webkit-scrollbar-track {
+		background: var(--background);
+		border-left: 2px solid var(--border);
+	}
+	::-webkit-scrollbar-thumb {
+		background: var(--primary);
+		border: 2px solid var(--border);
+		box-shadow: 2px 2px 0 0 var(--border);
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: var(--primary-hover);
+	}
+
 	h1,
 	h2,
 	h3,

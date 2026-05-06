@@ -79,7 +79,7 @@ export class GameSession {
 		this.destroy();
 		gameState.addGame(this.score);
 		setTimeout(() => {
-			goto(resolve('/results'));
+			goto('/result');
 		}, 1500);
 	}
 }
