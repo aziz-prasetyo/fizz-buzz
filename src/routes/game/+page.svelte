@@ -12,40 +12,55 @@
 	});
 </script>
 
-<div class="flex flex-col items-center gap-12 py-8">
+<div class="flex flex-col items-center gap-10 py-4 md:gap-16">
 	<!-- Header / Stats -->
-	<div class="flex w-full items-center justify-between">
-		<div class="flex flex-col gap-1">
-			<div class="text-xs font-bold tracking-widest text-muted-foreground uppercase">Score</div>
-			<div class="text-4xl font-black text-foreground">{game.score}</div>
+	<div class="flex w-full items-end justify-between border-b-4 border-black pb-6">
+		<div class="flex flex-col gap-2">
+			<div class="font-head text-[10px] tracking-widest text-muted-foreground uppercase">Score</div>
+			<div class="font-head text-5xl text-foreground tabular-nums">
+				{game.score.toString().padStart(3, '0')}
+			</div>
 		</div>
-		<div class="flex flex-col gap-1 text-right">
-			<div class="text-xs font-bold tracking-widest text-muted-foreground uppercase">Time</div>
+
+		<div class="flex flex-col items-center gap-1">
+			<div
+				class="text-center font-head text-[10px] tracking-widest text-muted-foreground uppercase"
+			>
+				Time Left
+			</div>
 			<div
 				class={cn(
-					'text-4xl font-black tabular-nums transition-colors',
+					'min-w-[140px] border-4 border-black bg-secondary px-4 py-2 text-center font-head text-6xl tabular-nums',
 					game.timeLeft < 3 ? 'animate-pulse text-destructive' : 'text-primary'
 				)}
 			>
-				{game.timeLeft.toFixed(1)}s
+				{game.timeLeft.toFixed(1)}
 			</div>
 		</div>
 	</div>
 
 	<!-- Progress Bar -->
-	<Progress value={game.progress} class="h-3 w-full" />
+	<div class="w-full border-2 border-black bg-white p-1 shadow-[4px_4px_0_0_#000]">
+		<Progress value={game.progress} class="h-6" />
+	</div>
 
 	<!-- Main Question -->
-	<div class="flex flex-1 items-center justify-center py-12">
+	<div class="flex min-h-[240px] flex-1 items-center justify-center py-8">
 		<div
 			class={cn(
-				'text-8xl font-black text-foreground transition-all duration-200',
-				game.feedback === 'correct' && 'scale-110 text-success',
+				'font-head text-9xl text-foreground transition-all duration-100',
+				game.feedback === 'correct' && 'scale-125 text-success',
 				game.feedback === 'wrong' && 'animate-shake text-destructive'
 			)}
 		>
 			{#if game.isGameOver}
-				<span class="text-6xl text-destructive">GAME OVER</span>
+				<div class="flex flex-col items-center gap-4">
+					<span class="text-5xl text-destructive md:text-7xl">GAME OVER</span>
+					<span
+						class="animate-pulse font-sans text-xl font-bold tracking-[0.3em] text-muted-foreground uppercase"
+						>Syncing high scores...</span
+					>
+				</div>
 			{:else}
 				{game.currentNumber}
 			{/if}
@@ -53,16 +68,28 @@
 	</div>
 
 	<!-- Input Buttons -->
-	<div class="grid w-full max-w-md grid-cols-2 gap-4">
+	<div class="grid w-full max-w-lg grid-cols-2 gap-6 md:gap-8">
 		{#each options as option (option)}
 			<Button
-				variant="outline"
+				variant={option === 'Fizz'
+					? 'default'
+					: option === 'Buzz'
+						? 'accent'
+						: option === 'FizzBuzz'
+							? 'secondary'
+							: 'outline'}
 				onclick={() => game.handleAnswer(option)}
 				disabled={game.isGameOver}
-				class="h-auto px-4 py-8 text-2xl font-bold transition-all hover:border-primary hover:text-primary active:scale-95"
+				class="h-auto border-4 border-black px-4 py-10 text-3xl md:text-4xl"
 			>
 				{option === 'Number' ? '#' : option}
 			</Button>
 		{/each}
 	</div>
 </div>
+
+<style>
+	:global([data-slot='progress-indicator']) {
+		transition: none !important; /* Snappy movement */
+	}
+</style>
