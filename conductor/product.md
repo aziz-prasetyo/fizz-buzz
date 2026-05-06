@@ -17,7 +17,9 @@ To provide a simple yet addictive browser-based gaming experience that rewards q
 ## Core Features
 - **Infinite Survival Mode**: The game continues as long as the timer is above zero.
 - **Dynamic Timer**: Each question starts with 10 seconds. Correct answers reset or add to the timer, while incorrect answers apply a time penalty.
-- **Local-First Persistence**: High scores and game history are stored locally in the browser's `localStorage`, ensuring data remains private and accessible without a server.
+- **Advanced Scoring**: Combo system with multipliers for consecutive correct answers.
+- **Progression System**: Achievement badges and Leveling system based on accumulated XP.
+- **Local-First Persistence**: High scores, game history, and progression data are stored locally in the browser's `localStorage`.
 - **Polished Responsive UI**: Optimized for both mobile and desktop play with a modern, clean aesthetic.
 - **Deployment Ready**: Fully containerized for easy deployment to platforms like Google Cloud Run.
 

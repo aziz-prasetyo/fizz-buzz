@@ -9,6 +9,7 @@ mock.module('$app/paths', () => ({
 }));
 
 import { GameSession } from './game.svelte';
+import { gameState } from './state.svelte';
 
 describe('GameSession Combo System', () => {
 	it('should start with combo 0 and multiplier 1', () => {
@@ -62,6 +63,28 @@ describe('GameSession Combo System', () => {
 		const initialScore = game.score;
 		game.handleAnswer((game as any).getFizzBuzzValue(game.currentNumber));
 		expect(game.score).toBe(initialScore + 2);
+		game.destroy();
+	});
+
+	it('should trigger achievements on correct answers', () => {
+		const game = new GameSession();
+		const spy = spyOn(gameState, 'unlockAchievement');
+		
+		// 3 is Fizz
+		(game as any).currentNumber = 3;
+		game.handleAnswer('Fizz');
+		expect(spy).toHaveBeenCalledWith('fizz_master');
+		
+		// 5 is Buzz
+		(game as any).currentNumber = 5;
+		game.handleAnswer('Buzz');
+		expect(spy).toHaveBeenCalledWith('buzz_master');
+		
+		// 15 is FizzBuzz
+		(game as any).currentNumber = 15;
+		game.handleAnswer('FizzBuzz');
+		expect(spy).toHaveBeenCalledWith('fizzbuzz_pro');
+
 		game.destroy();
 	});
 });

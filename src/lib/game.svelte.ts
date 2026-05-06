@@ -60,6 +60,12 @@ export class GameSession {
 			this.currentNumber++;
 			this.timeLeft = this.INITIAL_TIME;
 			this.showFeedback('correct');
+
+			// Trigger achievements
+			if (correctValue === 'Fizz') gameState.unlockAchievement('fizz_master');
+			if (correctValue === 'Buzz') gameState.unlockAchievement('buzz_master');
+			if (correctValue === 'FizzBuzz') gameState.unlockAchievement('fizzbuzz_pro');
+			if (this.combo === 3) gameState.unlockAchievement('combo_x3');
 		} else {
 			this.combo = 0;
 			this.timeLeft = Math.max(0, this.timeLeft - this.PENALTY);
@@ -82,6 +88,9 @@ export class GameSession {
 		this.isGameOver = true;
 		this.destroy();
 		gameState.addGame(this.score);
+		gameState.unlockAchievement('first_game');
+		if (this.score >= 50) gameState.unlockAchievement('high_scorer');
+
 		setTimeout(() => {
 			goto(resolve('/result'));
 		}, 1500);

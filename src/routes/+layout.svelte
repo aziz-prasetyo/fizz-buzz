@@ -5,6 +5,7 @@
 	import { resolve } from '$app/paths';
 	import { cn } from '$lib/utils';
 	import Logo from '$lib/components/logo.svelte';
+	import AchievementNotification from '$lib/components/achievement-notification.svelte';
 	import UserIcon from '@lucide/svelte/icons/user';
 	import HomeIcon from '@lucide/svelte/icons/home';
 	import HistoryIcon from '@lucide/svelte/icons/history';
@@ -19,6 +20,7 @@
 <div
 	class="relative flex min-h-screen w-full flex-col bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground"
 >
+	<AchievementNotification />
 	<!-- CRT Scanline Overlay -->
 	<div
 		class="pointer-events-none fixed inset-0 z-50 opacity-[0.02] mix-blend-overlay"
