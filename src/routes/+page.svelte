@@ -4,13 +4,6 @@
 	import PlayIcon from '@lucide/svelte/icons/play';
 	import RocketIcon from '@lucide/svelte/icons/rocket';
 	import ZapIcon from '@lucide/svelte/icons/zap';
-	import { onMount } from 'svelte';
-
-	let mounted = $state(false);
-
-	onMount(() => {
-		mounted = true;
-	});
 </script>
 
 <div class="flex min-h-[calc(100vh-200px)] flex-col items-center justify-center py-8 md:py-12">
@@ -28,18 +21,16 @@
 				class="border-2 border-black bg-accent px-4 py-1 font-head text-[10px] shadow-sm md:text-xs"
 			>
 				<ZapIcon class="mr-2 size-3 animate-bounce text-destructive" />
-				ESTABLISHED 2026 // VERSION 1.0.5
+				v0.0.1 - BETA
 			</Badge>
 
-			<div class="space-y-2">
-				<h1
-					class="font-head text-7xl leading-[0.85] tracking-tighter text-foreground md:text-9xl lg:text-[10rem]"
-				>
+			<div class="space-y-12">
+				<h1 class="font-head text-8xl leading-[0.85] tracking-tighter text-foreground md:text-9xl">
 					FIZZ<br />
 					<span class="relative inline-block text-primary">
 						BUZZ
 						<div
-							class="absolute -bottom-2 left-0 h-4 w-full bg-black/10 md:h-6"
+							class="absolute -bottom-4 left-0 h-4 w-full bg-slate-500 md:h-6"
 							style="clip-path: polygon(0% 100%, 5% 40%, 10% 100%, 15% 40%, 20% 100%, 25% 40%, 30% 100%, 35% 40%, 40% 100%, 45% 40%, 50% 100%, 55% 40%, 60% 100%, 65% 40%, 70% 100%, 75% 40%, 80% 100%, 85% 40%, 90% 100%, 95% 40%, 100% 100%);"
 						></div>
 					</span>
@@ -54,24 +45,16 @@
 				</p>
 			</div>
 
-			<div class="flex flex-wrap gap-4">
+			<div class="flex w-full flex-wrap gap-4 md:w-auto">
 				<Button
 					href="/game"
 					variant="default"
-					class="group relative h-auto border-4 border-black px-8 py-6 text-2xl shadow-xl transition-all hover:-translate-y-1 active:translate-y-1 active:shadow-none md:px-12 md:py-8 md:text-3xl"
+					class="group relative h-auto w-full border-4 border-black px-8 py-6 text-2xl shadow-xl transition-all hover:-translate-y-1 active:translate-y-1 active:shadow-none md:px-12 md:py-8 md:text-3xl"
 				>
 					<PlayIcon
 						class="mr-3 size-8 transition-transform group-hover:scale-110 group-active:scale-95"
 					/>
 					PLAY NOW
-				</Button>
-
-				<Button
-					href="/profiles"
-					variant="outline"
-					class="h-auto border-4 border-black px-8 py-6 text-2xl shadow-retro transition-all hover:bg-accent active:translate-x-1 active:translate-y-1 active:shadow-none md:px-10 md:py-8 md:text-3xl"
-				>
-					PROFILE
 				</Button>
 			</div>
 		</div>
@@ -79,16 +62,16 @@
 		<!-- Right Column: Interactive/Animated Decoration -->
 		<div class="relative hidden items-center justify-center lg:flex">
 			<div
-				class="group relative flex size-96 flex-col items-center justify-center border-8 border-black bg-white shadow-retro-lg transition-transform hover:rotate-2"
+				class="group relative flex size-96 flex-col items-center justify-center border-8 border-black bg-white outline-4 outline-offset-2 transition-transform hover:rotate-6"
 			>
 				<div
 					class="animate-spin-slow absolute -top-12 -right-12 z-20 flex size-24 items-center justify-center border-4 border-black bg-primary font-head text-4xl shadow-retro"
 				>
-					3?
+					15?
 				</div>
 
 				<div
-					class="absolute -bottom-8 -left-8 z-20 flex size-20 items-center justify-center border-4 border-black bg-destructive text-white shadow-retro"
+					class="absolute -bottom-8 -left-8 z-20 flex size-20 items-center justify-center border-4 border-black bg-destructive text-white shadow-retro transition-transform group-hover:scale-150 group-hover:-rotate-360"
 				>
 					<RocketIcon class="size-10" />
 				</div>
@@ -102,24 +85,16 @@
 						<div class="size-3 rounded-full bg-success"></div>
 					</div>
 
-					<div
-						class="relative z-10 flex flex-1 flex-col justify-center space-y-4 font-head uppercase"
-					>
-						<div class="animate-pulse text-2xl text-primary">READY?</div>
-						<div class="text-4xl text-white">SYSTEM</div>
-						<div class="flex gap-2">
-							<div class="h-4 w-full bg-white/20">
-								<div class="h-full w-2/3 bg-primary"></div>
+					<div class="relative z-10 flex flex-1 flex-col justify-center gap-6 font-head uppercase">
+						<div class="text-2xl text-primary">READY?</div>
+						<div class="space-y-4">
+							<div class="text-4xl text-white">MISSION</div>
+							<div class="flex gap-2">
+								<div class="h-4 w-full bg-white/20">
+									<div class="h-full w-2/3 animate-pulse bg-primary"></div>
+								</div>
 							</div>
 						</div>
-					</div>
-
-					<div class="pointer-events-none absolute inset-0 z-0 opacity-20">
-						{#if mounted}
-							<div
-								class="absolute inset-0 animate-[scanline_4s_linear_infinite] bg-[linear-gradient(transparent_0%,rgba(255,255,255,0.1)_50%,transparent_100%)] bg-[length:100%_4px]"
-							></div>
-						{/if}
 					</div>
 				</div>
 			</div>
@@ -150,12 +125,12 @@
 				</p>
 			</div>
 
-			<div class="grid grid-cols-2 gap-4 md:grid-cols-4">
-				{#each ['FAST', 'BOLD', 'HARD', 'RETRO'] as word (word)}
+			<div class="grid grid-cols-3 gap-4 md:grid-cols-4">
+				{#each ['FIZZ', 'BUZZ', 'FUN'] as word (word)}
 					<div
-						class="flex items-center justify-center border-2 border-black bg-white p-4 font-head text-sm shadow-retro transition-transform hover:-translate-y-1"
+						class="group flex items-center justify-center border-2 border-black bg-accent p-4 font-head text-sm shadow-retro transition-all duration-300 hover:-translate-y-2 hover:bg-accent/50"
 					>
-						{word}
+						<span class="transition group-hover:rotate-x-0 md:rotate-x-180">{word}</span>
 					</div>
 				{/each}
 			</div>
