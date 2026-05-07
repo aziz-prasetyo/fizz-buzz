@@ -23,17 +23,16 @@ describe('Shimmer component', () => {
 	});
 
 	it('should transition from shimmer to content correctly', async () => {
-	const { component, container, rerender } = render(TestComponent, { props: { loading: true } });
-	// Initially, shimmer should be present and content in DOM
-	expect(container.querySelector('.shimmer-container')).toBeDefined();
-	expect(screen.getByText('Hello World!')).toBeDefined();
+		const { component, container, rerender } = render(TestComponent, { props: { loading: true } });
+		// Initially, shimmer should be present and content in DOM
+		expect(container.querySelector('.shimmer-container')).toBeDefined();
+		expect(screen.getByText('Hello World!')).toBeDefined();
 
-	await rerender({ loading: false }); // Use rerender to update props
-	await tick(); // Wait for Svelte to re-render
+		await rerender({ loading: false }); // Use rerender to update props
+		await tick(); // Wait for Svelte to re-render
 
-	// After transition, shimmer should be gone and content still in DOM (visible)
-	expect(container.querySelector('.shimmer-container')).toBeNull();
-	expect(screen.getByText('Hello World!')).toBeDefined();
-
+		// After transition, shimmer should be gone and content still in DOM (visible)
+		expect(container.querySelector('.shimmer-container')).toBeNull();
+		expect(screen.getByText('Hello World!')).toBeDefined();
 	});
 });

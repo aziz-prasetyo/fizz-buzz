@@ -8,10 +8,11 @@ import { expect, vi } from 'vitest'; // Import vi for mocking
 expect.extend(matchers);
 
 // Mock ResizeObserver
-window.ResizeObserver = class ResizeObserver { // Changed from global.ResizeObserver
-  observe() {}
-  unobserve() {}
-  disconnect() {}
+window.ResizeObserver = class ResizeObserver {
+	// Changed from global.ResizeObserver
+	observe() {}
+	unobserve() {}
+	disconnect() {}
 };
 
 // Mock SvelteKit's $app/environment for tests that depend on `browser`

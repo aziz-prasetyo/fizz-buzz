@@ -1,4 +1,31 @@
-You are able to use the Svelte MCP server, where you have access to comprehensive Svelte 5 and SvelteKit documentation. Here's how to use the available tools effectively:
+# Project Guidelines & Workflow
+
+## Core Mandates
+
+### 1. Spec-Driven Development (SDD)
+
+This project STRICTLY follows the SDD workflow defined in `conductor/workflow.md`.
+
+- **Waterfall Lifecycle:** Every feature/update MUST proceed through:
+  1. **Upstream (Spec):** Define requirements in `spec.md`. Get user confirmation.
+  2. **Midstream (Plan):** Define implementation in `plan.md`. Get user confirmation.
+  3. **Downstream (Execute):** Implement via TDD and validate. Get user confirmation.
+  4. **Recycling:** Archive completed tracks and return to Upstream.
+- **Confirmation Gates:** DO NOT proceed to the next phase without explicit user approval of the current phase's output.
+- **Process Improvement:** If a process requires improvement, confirm the change with the user before proceeding.
+
+### 2. Token & Resource Optimization
+
+- **Caveman Mode:** Always activate and use the `caveman` skill to minimize token usage for all communication.
+- **Context Efficiency:** Batch file reads and searches. Use parallel execution for independent tool calls.
+- **No Chitchat:** Avoid conversational filler. Be technical, direct, and concise.
+
+### 3. Svelte 5 & SvelteKit Association
+
+- **Framework:** Svelte 5 & SvelteKit.
+- **Svelte MCP:** Agents MUST be associated with and use the Svelte MCP server for ALL documentation lookups, feature implementations, and updates. This is the source of truth for framework patterns.
+- **Runes:** Mandatory use of Svelte 5 runes.
+- **Validation:** Every component MUST pass `svelte-autofixer` before finalization.
 
 ## Available Svelte MCP Tools:
 

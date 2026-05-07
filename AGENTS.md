@@ -1,23 +1,28 @@
-You are able to use the Svelte MCP server, where you have access to comprehensive Svelte 5 and SvelteKit documentation. Here's how to use the available tools effectively:
+# Agent Mandates & SDD Workflow
 
-## Available Svelte MCP Tools:
+## 1. Spec-Driven Development (SDD)
 
-### 1. list-sections
+All agents MUST follow the lifecycle in `conductor/workflow.md`:
 
-Use this FIRST to discover all available documentation sections. Returns a structured list with titles, use_cases, and paths.
-When asked about Svelte or SvelteKit topics, ALWAYS use this tool at the start of the chat to find relevant sections.
+1.  **Upstream (Spec):** Define in `spec.md`. Confirm with user.
+2.  **Midstream (Plan):** Define in `plan.md`. Confirm with user.
+3.  **Downstream (Execute):** Implement via TDD. Confirm final result.
+4.  **Recycling (Archive & Sync):** **MANDATORY COMMIT.** After a full cycle, agents MUST commit archival and sync changes to finalize the feature/update.
 
-### 2. get-documentation
+## 2. Commit Requirements
 
-Retrieves full documentation content for specific sections. Accepts single or multiple sections.
-After calling the list-sections tool, you MUST analyze the returned documentation sections (especially the use_cases field) and then use the get-documentation tool to fetch ALL documentation sections that are relevant for the user's task.
+- **Task Commits:** Every task in `plan.md` needs a commit with `git notes`.
+- **Checkpoint Commits:** Every phase completion needs a checkpoint commit.
+- **Cycle Completion Commit:** Upon finishing "Phase 4: Recycling", commit the archival of the track and updates to management files (e.g., `tracks.md`).
 
-### 3. svelte-autofixer
+## 3. Communication (Caveman Mode)
 
-Analyzes Svelte code and returns issues and suggestions.
-You MUST use this tool whenever writing Svelte code before sending it to the user. Keep calling it until no issues or suggestions are returned.
+- Always activate `caveman` skill.
+- Minimal tokens. Technical substance only. No filler.
 
-### 4. playground-link
+## 4. Svelte 5 & SvelteKit Association
 
-Generates a Svelte Playground link with the provided code.
-After completing the code, ask the user if they want a playground link. Only call this tool after user confirmation and NEVER if code was written to files in their project.
+- **Primary Framework:** Svelte 5 & SvelteKit.
+- **Mandatory Tooling:** Agents MUST be associated with and utilize the **Svelte MCP Server** for all documentation, feature creation, and updates.
+- **Runes & Patterns:** Exclusively use Svelte 5 runes (`$state`, etc.).
+- **Auto-Fixing:** Always run `svelte-autofixer` before submitting code.

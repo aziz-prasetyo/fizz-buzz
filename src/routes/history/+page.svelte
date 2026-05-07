@@ -40,20 +40,24 @@
 						<Table.Head class="h-12 font-head text-xs tracking-widest text-white uppercase"
 							>TIMESTAMP</Table.Head
 						>
-						<Table.Head class="h-12 text-right font-head text-xs tracking-widest text-white uppercase"
+						<Table.Head
+							class="h-12 text-right font-head text-xs tracking-widest text-white uppercase"
 							>SCORE</Table.Head
 						>
 					</Table.Row>
 				</Table.Header>
 				<Table.Body>
-					{#each Array(3) as _, i (i)}
+					{#each Array(3), i (i)}
 						<Table.Row class="border-b-2 border-black transition-colors last:border-0">
 							<Table.Cell class="py-4 font-mono text-xs font-bold uppercase">
 								<span class="mr-3 text-muted-foreground">[00]</span>
 								JAN 01 @ 00:00
 							</Table.Cell>
 							<Table.Cell class="py-4 text-right">
-								<Badge variant="secondary" class="border-2 border-black px-3 py-1 font-head text-lg">
+								<Badge
+									variant="secondary"
+									class="border-2 border-black px-3 py-1 font-head text-lg"
+								>
 									000
 								</Badge>
 							</Table.Cell>
@@ -81,7 +85,8 @@
 						<Table.Head class="h-12 font-head text-xs tracking-widest text-white uppercase"
 							>TIMESTAMP</Table.Head
 						>
-						<Table.Head class="h-12 text-right font-head text-xs tracking-widest text-white uppercase"
+						<Table.Head
+							class="h-12 text-right font-head text-xs tracking-widest text-white uppercase"
 							>SCORE</Table.Head
 						>
 					</Table.Row>

@@ -38,7 +38,7 @@ describe('GameSession Combo System', () => {
 		const game = new GameSession();
 		game.handleAnswer('Number');
 		expect(game.combo).toBe(1);
-		
+
 		game.currentNumber = 2; // 2 is Number
 		game.handleAnswer('Fizz'); // Wrong answer
 		expect(game.combo).toBe(0);
@@ -61,10 +61,10 @@ describe('GameSession Combo System', () => {
 		const game = new GameSession();
 		game.combo = 3;
 		const initialScore = game.score;
-		
+
 		game.currentNumber = 1; // 1 is Number
 		game.handleAnswer('Number');
-		
+
 		expect(game.score).toBe(initialScore + 2);
 		game.destroy();
 	});

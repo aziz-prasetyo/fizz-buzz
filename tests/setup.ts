@@ -12,7 +12,6 @@ global.KeyboardEvent = dom.window.KeyboardEvent;
 global.Event = dom.window.Event;
 global.Node = dom.window.Node;
 
-
 mock.module('$app/navigation', () => ({
 	goto: () => {}
 }));

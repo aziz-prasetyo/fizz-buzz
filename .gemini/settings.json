@@ -1,15 +1,12 @@
 {
-  "$schema": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/schemas/settings.schema.json",
-  "mcpServers": {
-    "svelte": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@sveltejs/mcp"
-      ]
-    }
-  },
-  "general": {
-    "preferredEditor": "vscode"
-  }
+	"$schema": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/schemas/settings.schema.json",
+	"mcpServers": {
+		"svelte": {
+			"command": "npx",
+			"args": ["-y", "@sveltejs/mcp"]
+		}
+	},
+	"general": {
+		"preferredEditor": "vscode"
+	}
 }

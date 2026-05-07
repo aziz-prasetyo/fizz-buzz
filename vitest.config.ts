@@ -8,7 +8,7 @@ export default defineConfig({
 	test: {
 		environment: 'jsdom',
 		setupFiles: [resolve(__dirname, 'tests/vitest.setup.ts')],
-		include: ['src/**/*.{test,spec}.ts', 'src/**/*.{test,spec}.js'],
+		include: ['src/**/*.{test,spec}.ts', 'src/**/*.{test,spec}.js']
 		// No exclusions needed, all tests should run in Vitest
 	}
 });

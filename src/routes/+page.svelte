@@ -174,9 +174,9 @@
 		left: -60%;
 		width: 20%;
 		height: 200%;
-		background: rgba(255, 255, 255, 0.2);
+		background: rgba(255, 255, 255, 0.9);
 		transform: rotate(30deg);
-		animation: sheen 3s infinite;
+		animation: sheen 4s infinite;
 		pointer-events: none;
 	}
 

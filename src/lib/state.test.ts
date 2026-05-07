@@ -61,7 +61,7 @@ describe('GameState logic', () => {
 		gameState.addGame(100);
 		gameState.unlockAchievement('test');
 		await tick();
-		
+
 		expect(gameState.history.length).toBe(1);
 		expect(gameState.highScore).toBe(100);
 		expect(gameState.xp).toBe(1000);
@@ -69,7 +69,7 @@ describe('GameState logic', () => {
 
 		gameState.clearHistory();
 		await tick();
-		
+
 		expect(gameState.history.length).toBe(0);
 		expect(gameState.highScore).toBe(0);
 		expect(gameState.xp).toBe(0);
