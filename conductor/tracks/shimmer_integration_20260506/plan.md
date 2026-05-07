@@ -1,15 +1,15 @@
 # Implementation Plan: Implement shimmer-from-structure Integration
 
 ## Phase 1: Foundation & Skill
-- [ ] **Task: Create standalone Shimmer Skill**
-    - [ ] Create `.gemini/skills/shimmer/SKILL.md` with API docs and Retro-Brutalist patterns.
-- [ ] **Task: Library Installation & Global Configuration**
-    - [ ] Run `bun add @shimmer-from-structure/svelte`.
-    - [ ] Update `src/routes/+layout.svelte` with `setShimmerConfig` matching Neo-Brutalist colors.
-- [ ] **Task: Conductor - User Manual Verification 'Foundation & Skill' (Protocol in workflow.md)**
+- [x] **Task: Create standalone Shimmer Skill**
+    - [x] Create `.gemini/skills/shimmer/SKILL.md` with API docs and Retro-Brutalist patterns.
+- [x] **Task: Library Installation & Global Configuration**
+    - [x] Run `bun add @shimmer-from-structure/svelte`.
+    - [x] Update `src/routes/+layout.svelte` with `setShimmerConfig` matching Neo-Brutalist colors.
+- [x] **Task: Conductor - User Manual Verification 'Foundation & Skill' (Protocol in workflow.md)**
 
 ## Phase 2: State Loading Strategy
-- [ ] **Task: Write tests for GameState loading transitions**
+- [x] **Task: Write tests for GameState loading transitions** 8c114d0
 - [ ] **Task: Implement discrete `loading` states in `state.svelte.ts`**
     - [ ] Add reactive boolean state to track `localStorage` hydration completion.
 - [ ] **Task: Conductor - User Manual Verification 'State Loading Strategy' (Protocol in workflow.md)**
