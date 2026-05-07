@@ -5,6 +5,7 @@
 	import PlayIcon from '@lucide/svelte/icons/play';
 	import StarIcon from '@lucide/svelte/icons/star';
 	import { Progress } from '$lib/components/ui/progress';
+	import { Shimmer } from '@shimmer-from-structure/svelte'; // Import Shimmer component
 
 	const ACHIEVEMENTS = [
 		{ id: 'first_game', title: 'First Step', icon: '🚀' },
@@ -29,56 +30,58 @@
 		</div>
 	</div>
 
-	<!-- XP Progress -->
-	<div class="flex w-full max-w-4xl flex-col gap-2">
-		<div class="flex justify-between font-head text-[10px] tracking-widest uppercase">
-			<span>Rank Progress</span>
-			<span>{Math.floor(gameState.xp % 1000)} / 1000 XP</span>
-		</div>
-		<div class="w-full border-4 border-black bg-white p-1 shadow-retro">
-			<Progress value={gameState.xpProgress} class="h-8" />
-		</div>
-	</div>
-
-	<div class="grid w-full max-w-4xl gap-8 md:grid-cols-2">
-		<div class="flex flex-col border-4 border-black bg-white p-8 shadow-retro-lg">
-			<div class="mb-6 flex items-center justify-between">
-				<div class="bg-black p-3 text-primary">
-					<TrophyIcon class="size-8" />
-				</div>
-				<div class="font-head text-xs tracking-widest text-muted-foreground uppercase">
-					Highest Record
-				</div>
+	<Shimmer loading={gameState.loading} fallbackBorderRadius={0}>
+		<!-- XP Progress -->
+		<div class="flex w-full max-w-4xl flex-col gap-2">
+			<div class="flex justify-between font-head text-[10px] tracking-widest uppercase">
+				<span>Rank Progress</span>
+				<span>{Math.floor(gameState.xp % 1000)} / 1000 XP</span>
 			</div>
-
-			<div class="flex flex-col">
-				<div class="font-head text-7xl leading-none tabular-nums md:text-9xl">
-					{gameState.highScore.toString().padStart(3, '0')}
-				</div>
-				<div class="mt-2 font-head text-sm text-primary uppercase">Points Archived</div>
+			<div class="w-full border-4 border-black bg-white p-1 shadow-retro">
+				<Progress value={gameState.xpProgress} class="h-8" />
 			</div>
 		</div>
 
-		<div class="flex flex-col border-4 border-black bg-primary p-8 shadow-retro-lg">
-			<div class="mb-6 flex items-center justify-between">
-				<div class="bg-black p-3 text-white">
-					<PlayIcon class="size-8" />
+		<div class="grid w-full max-w-4xl gap-8 md:grid-cols-2">
+			<div class="flex flex-col border-4 border-black bg-white p-8 shadow-retro-lg">
+				<div class="mb-6 flex items-center justify-between">
+					<div class="bg-black p-3 text-primary">
+						<TrophyIcon class="size-8" />
+					</div>
+					<div class="font-head text-xs tracking-widest text-muted-foreground uppercase">
+						Highest Record
+					</div>
 				</div>
-				<div class="font-head text-xs font-bold tracking-widest text-black uppercase">
-					Action Required
+
+				<div class="flex flex-col">
+					<div class="font-head text-7xl leading-none tabular-nums md:text-9xl">
+						{gameState.highScore.toString().padStart(3, '0')}
+					</div>
+					<div class="mt-2 font-head text-sm text-primary uppercase">Points Archived</div>
 				</div>
 			</div>
 
-			<div class="flex flex-1 flex-col justify-center">
-				<Button
-					href="/game"
-					class="h-auto border-4 border-black bg-white px-8 py-10 font-head text-3xl text-black shadow-retro transition-all hover:bg-accent active:translate-x-1 active:translate-y-1 active:shadow-none"
-				>
-					START MISSION
-				</Button>
+			<div class="flex flex-col border-4 border-black bg-primary p-8 shadow-retro-lg">
+				<div class="mb-6 flex items-center justify-between">
+					<div class="bg-black p-3 text-white">
+						<PlayIcon class="size-8" />
+					</div>
+					<div class="font-head text-xs font-bold tracking-widest text-black uppercase">
+						Action Required
+					</div>
+				</div>
+
+				<div class="flex flex-1 flex-col justify-center">
+					<Button
+						href="/game"
+						class="h-auto border-4 border-black bg-white px-8 py-10 font-head text-3xl text-black shadow-retro transition-all hover:bg-accent active:translate-x-1 active:translate-y-1 active:shadow-none"
+					>
+						START MISSION
+					</Button>
+				</div>
 			</div>
 		</div>
-	</div>
+	</Shimmer>
 
 	<!-- Achievements Grid -->
 	<div class="flex w-full max-w-4xl flex-col gap-6">
