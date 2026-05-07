@@ -14,7 +14,7 @@
     - [x] Add reactive boolean state to track `localStorage` hydration completion.
 - [ ] **Task: Conductor - User Manual Verification 'State Loading Strategy' (Protocol in workflow.md)**
 
-## Phase 3: Shimmer Implementation
+## Phase 3: Shimmer Implementation [checkpoint: aa843eb]
 - [x] **Task: Write tests for Shimmer component rendering** b3adb6b
 - [x] **Task: Apply Shimmer to Profile Mission Statistics** 02e004f
     - [x] Wrap `Pilot Profile` stats in `Shimmer`.
