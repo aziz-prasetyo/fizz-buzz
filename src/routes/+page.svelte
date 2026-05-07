@@ -62,7 +62,7 @@
 		<!-- Right Column: Interactive/Animated Decoration -->
 		<div class="relative hidden items-center justify-center lg:flex">
 			<div
-				class="group relative flex size-96 flex-col items-center justify-center border-8 border-black bg-white outline-4 outline-offset-2 transition-transform hover:rotate-6"
+				class="relative flex size-96 flex-col items-center justify-center border-8 border-black bg-white outline-4 outline-offset-2"
 			>
 				<div
 					class="animate-spin-slow absolute -top-12 -right-12 z-20 flex size-24 items-center justify-center border-4 border-black bg-primary font-head text-4xl shadow-retro"
@@ -71,7 +71,7 @@
 				</div>
 
 				<div
-					class="absolute -bottom-8 -left-8 z-20 flex size-20 items-center justify-center border-4 border-black bg-destructive text-white shadow-retro transition-transform group-hover:scale-150 group-hover:-rotate-360"
+					class="absolute -bottom-8 -left-8 z-20 flex size-20 items-center justify-center border-4 border-black bg-destructive text-white shadow-retro"
 				>
 					<RocketIcon class="size-10" />
 				</div>
@@ -100,12 +100,12 @@
 			</div>
 
 			<div
-				class="absolute -top-4 left-20 border-2 border-black bg-accent px-4 py-2 font-head text-xs shadow-retro transition-all hover:-rotate-3"
+				class="absolute -top-4 left-20 border-2 border-black bg-accent px-4 py-2 font-head text-xs shadow-retro"
 			>
 				FIZZ = %3
 			</div>
 			<div
-				class="absolute right-10 bottom-10 border-2 border-black bg-white px-4 py-2 font-head text-xs shadow-retro transition-all hover:rotate-6"
+				class="absolute right-10 bottom-10 border-2 border-black bg-white px-4 py-2 font-head text-xs shadow-retro"
 			>
 				BUZZ = %5
 			</div>
@@ -158,6 +158,49 @@
 		}
 		to {
 			transform: rotate(360deg);
+		}
+	}
+
+	:global(.cta-animate) {
+		animation: neo-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+		position: relative;
+		overflow: hidden !important;
+	}
+
+	:global(.cta-animate::after) {
+		content: '';
+		position: absolute;
+		top: -50%;
+		left: -60%;
+		width: 20%;
+		height: 200%;
+		background: rgba(255, 255, 255, 0.2);
+		transform: rotate(30deg);
+		animation: sheen 3s infinite;
+		pointer-events: none;
+	}
+
+	@keyframes neo-pulse {
+		0%,
+		100% {
+			transform: scale(1);
+			filter: brightness(1);
+		}
+		50% {
+			transform: scale(1.02);
+			filter: brightness(1.1);
+		}
+	}
+
+	@keyframes sheen {
+		0% {
+			left: -60%;
+		}
+		20% {
+			left: 120%;
+		}
+		100% {
+			left: 120%;
 		}
 	}
 </style>
