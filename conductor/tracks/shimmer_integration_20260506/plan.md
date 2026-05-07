@@ -8,7 +8,7 @@
     - [x] Update `src/routes/+layout.svelte` with `setShimmerConfig` matching Neo-Brutalist colors.
 - [x] **Task: Conductor - User Manual Verification 'Foundation & Skill' (Protocol in workflow.md)**
 
-## Phase 2: State Loading Strategy
+## Phase 2: State Loading Strategy [checkpoint: 6a56fde]
 - [x] **Task: Write tests for GameState loading transitions** 8c114d0
 - [x] **Task: Implement discrete `loading` states in `state.svelte.ts`** 8c114d0
     - [x] Add reactive boolean state to track `localStorage` hydration completion.
