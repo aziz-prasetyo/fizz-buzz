@@ -1,5 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { mock } from 'bun:test';
+import { JSDOM } from 'jsdom'; // Changed to jsdom
+
+const dom = new JSDOM();
+global.window = dom.window as any;
+global.document = dom.window.document;
+global.HTMLElement = dom.window.HTMLElement;
+global.CustomEvent = dom.window.CustomEvent;
+global.MouseEvent = dom.window.MouseEvent;
+global.KeyboardEvent = dom.window.KeyboardEvent;
+global.Event = dom.window.Event;
+global.Node = dom.window.Node;
+
 
 mock.module('$app/navigation', () => ({
 	goto: () => {}

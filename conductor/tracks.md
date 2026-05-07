@@ -11,5 +11,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Implement shimmer-from-structure Integration**
+- [~] **Track: Implement shimmer-from-structure Integration**
       _Link: [./tracks/shimmer_integration_20260506/](./tracks/shimmer_integration_20260506/)_

@@ -1,14 +1,14 @@
 // tests/vitest.setup.ts
-import { config } from '@testing-library/svelte';
+import type { Config } from '@testing-library/svelte';
 import * as matchers from '@testing-library/jest-dom/matchers';
 import { expect, vi } from 'vitest'; // Import vi for mocking
-import { JSDOM } from 'jsdom'; // Import JSDOM
+// JSDOM is handled by vitest environment
 
 // Extend Vitest's expect with jest-dom matchers
 expect.extend(matchers);
 
 // Mock ResizeObserver
-global.ResizeObserver = class ResizeObserver {
+window.ResizeObserver = class ResizeObserver { // Changed from global.ResizeObserver
   observe() {}
   unobserve() {}
   disconnect() {}
@@ -39,8 +39,4 @@ Object.defineProperty(window, 'localStorage', {
 	}
 });
 
-// Global Svelte tick mock if needed for specific test scenarios
-// This is typically handled by @testing-library/svelte when using `await tick()`
-// and usually not needed to be globally mocked this way.
-// It's here for completeness if there's a need to globally control Svelte's reactivity.
-global.tick = async () => new Promise((r) => setTimeout(r, 0));
+// Removed global.tick as it's not strictly necessary and causes a TypeScript error
