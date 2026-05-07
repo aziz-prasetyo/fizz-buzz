@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { describe, expect, it, beforeEach } from 'bun:test';
-import { gameState } from './state.svelte';
+import { describe, expect, it, beforeEach, spyOn } from 'bun:test';
+import { gameState, GameState } from './state.svelte';
+import { tick } from 'svelte';
 
 describe('GameState logic', () => {
 	beforeEach(() => {
@@ -48,6 +49,19 @@ describe('GameState logic', () => {
 		// Manual sync for mock
 		(gameState as any).xpProgress = (((gameState as any).xp % 1000) / 1000) * 100;
 		expect((gameState as any).xpProgress).toBe(50); // 500/1000
+	});
+
+	it('should track loading state during hydration', async () => {
+		const state = new GameState();
+		// Should be loading initially
+		expect(state.loading).toBe(true);
+
+		// Wait for the hydration effect to complete
+		await tick();
+		await tick();
+
+		// Should not be loading after hydration
+		expect(state.loading).toBe(false);
 	});
 
 	it('should clear history and reset state', () => {
