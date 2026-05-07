@@ -10,6 +10,7 @@
 
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) - Utility-first CSS framework for rapid UI development.
 - **UI Components**: [Shadcn-Svelte](https://shadcn-svelte.com/) - Accessible and customizable UI components built with Svelte.
+- **Loading Indicators**: [Shimmer From Structure](https://github.com/shimmer-from-structure/svelte) - Structure-aware loading placeholders.
 - **Aesthetics**: [Retro UI / Neo-Brutalism](https://retroui.dev/) - Bold, high-contrast design language.
 
 ## Infrastructure
