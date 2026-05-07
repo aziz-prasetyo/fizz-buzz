@@ -10,8 +10,8 @@
 
 ## Phase 2: State Loading Strategy
 - [x] **Task: Write tests for GameState loading transitions** 8c114d0
-- [ ] **Task: Implement discrete `loading` states in `state.svelte.ts`**
-    - [ ] Add reactive boolean state to track `localStorage` hydration completion.
+- [x] **Task: Implement discrete `loading` states in `state.svelte.ts`** 8c114d0
+    - [x] Add reactive boolean state to track `localStorage` hydration completion.
 - [ ] **Task: Conductor - User Manual Verification 'State Loading Strategy' (Protocol in workflow.md)**
 
 ## Phase 3: Shimmer Implementation
