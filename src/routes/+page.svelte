@@ -49,7 +49,7 @@
 				<Button
 					href="/game"
 					variant="default"
-					class="group relative h-auto w-full border-4 border-black px-8 py-6 text-2xl shadow-xl transition-all hover:-translate-y-1 active:translate-y-1 active:shadow-none md:px-12 md:py-8 md:text-3xl"
+					class="cta-animate group relative h-auto w-full border-4 border-black px-8 py-6 text-2xl shadow-xl transition-all hover:-translate-y-1 active:translate-y-1 active:shadow-none md:px-12 md:py-8 md:text-3xl"
 				>
 					<PlayIcon
 						class="mr-3 size-8 transition-transform group-hover:scale-110 group-active:scale-95"
