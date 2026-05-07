@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { mock } from 'bun:test';
 
 mock.module('$app/navigation', () => ({
@@ -21,7 +22,7 @@ mock.module('$app/environment', () => ({
 	if (typeof v === 'function') return v();
 	return v;
 };
-(globalThis as any).$effect = (v: any) => {};
+(globalThis as any).$effect = () => {};
 (globalThis as any).$effect.root = (cb: any) => cb();
 (globalThis as any).$props = () => ({});
 
@@ -29,7 +30,13 @@ mock.module('$app/environment', () => ({
 const storage: Record<string, string> = {};
 (globalThis as any).localStorage = {
 	getItem: (key: string) => storage[key] || null,
-	setItem: (key: string, value: string) => { storage[key] = value },
-	removeItem: (key: string) => { delete storage[key] },
-	clear: () => { Object.keys(storage).forEach(key => delete storage[key]) }
+	setItem: (key: string, value: string) => {
+		storage[key] = value;
+	},
+	removeItem: (key: string) => {
+		delete storage[key];
+	},
+	clear: () => {
+		Object.keys(storage).forEach((key) => delete storage[key]);
+	}
 };

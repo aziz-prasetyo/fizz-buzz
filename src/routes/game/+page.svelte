@@ -27,11 +27,12 @@
 		<div class="flex flex-col items-center pb-1">
 			{#if game.combo > 0}
 				<div
-					class="flex items-center gap-1 font-head text-sm text-primary italic whitespace-nowrap md:gap-2 md:text-xl"
+					class="flex items-center gap-1 font-head text-sm whitespace-nowrap text-primary italic md:gap-2 md:text-xl"
 				>
 					<span>Combo {game.combo}</span>
 					{#if game.multiplier > 1}
-						<span class="rounded-sm bg-black px-1.5 py-0.5 text-[10px] text-white not-italic md:px-2 md:text-xs"
+						<span
+							class="rounded-sm bg-black px-1.5 py-0.5 text-[10px] text-white not-italic md:px-2 md:text-xs"
 							>x{game.multiplier}</span
 						>
 					{/if}

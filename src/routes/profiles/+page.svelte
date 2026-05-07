@@ -89,7 +89,7 @@
 		</div>
 
 		<div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
-			{#each ACHIEVEMENTS as merit}
+			{#each ACHIEVEMENTS as merit (merit.id)}
 				{@const isUnlocked = gameState.achievements.includes(merit.id)}
 				<div
 					class={[

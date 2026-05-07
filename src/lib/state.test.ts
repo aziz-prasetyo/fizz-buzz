@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { describe, expect, it, beforeEach } from 'bun:test';
 import { gameState } from './state.svelte';
 
@@ -25,7 +26,7 @@ describe('GameState logic', () => {
 		// Manual sync for mock
 		(gameState as any).level = Math.floor((gameState as any).xp / 1000) + 1;
 		expect((gameState as any).level).toBe(2);
-		
+
 		(gameState as any).addXp(1000);
 		(gameState as any).level = Math.floor((gameState as any).xp / 1000) + 1;
 		expect((gameState as any).level).toBe(3);
@@ -42,12 +43,12 @@ describe('GameState logic', () => {
 		expect((gameState as any).achievements.length).toBe(1);
 	});
 
-    it('should calculate XP progress', () => {
-        (gameState as any).addXp(500);
+	it('should calculate XP progress', () => {
+		(gameState as any).addXp(500);
 		// Manual sync for mock
 		(gameState as any).xpProgress = (((gameState as any).xp % 1000) / 1000) * 100;
-        expect((gameState as any).xpProgress).toBe(50); // 500/1000
-    });
+		expect((gameState as any).xpProgress).toBe(50); // 500/1000
+	});
 
 	it('should clear history and reset state', () => {
 		gameState.addGame(100);

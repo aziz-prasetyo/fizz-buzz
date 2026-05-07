@@ -5,7 +5,17 @@
 	let { game }: { game: GameSession } = $props();
 
 	let particles = $state<
-		{ id: number; x: number; y: number; color: string; dx: number; dy: number; dr: number; size: number; isCircle: boolean }[]
+		{
+			id: number;
+			x: number;
+			y: number;
+			color: string;
+			dx: number;
+			dy: number;
+			dr: number;
+			size: number;
+			isCircle: boolean;
+		}[]
 	>([]);
 	let nextId = 0;
 	let lastFeedback = $state<'correct' | 'wrong' | null>(null);
@@ -100,7 +110,8 @@
 				rotate(calc(var(--dr) * 0.4)) scale(1);
 		}
 		100% {
-			transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--dr)) scale(0);
+			transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(var(--dr))
+				scale(0);
 			opacity: 0;
 		}
 	}

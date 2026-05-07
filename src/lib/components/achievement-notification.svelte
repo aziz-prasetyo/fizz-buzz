@@ -18,9 +18,9 @@
 		if (gameState.notificationQueue.length > 0 && !currentNotification) {
 			const nextId = gameState.notificationQueue[0];
 			const details = ACHIEVEMENT_MAP[nextId] || { title: 'Unlocked!', description: nextId };
-			
+
 			currentNotification = { id: nextId, ...details };
-			
+
 			// Remove from queue
 			gameState.notificationQueue = gameState.notificationQueue.slice(1);
 
@@ -40,12 +40,16 @@
 			class="flex min-w-[280px] items-center gap-4 border-4 border-black bg-primary p-4 shadow-retro"
 		>
 			<div class="flex h-12 w-12 items-center justify-center border-4 border-black bg-white">
-				<Star class="h-6 w-6 text-black fill-primary" />
+				<Star class="h-6 w-6 fill-primary text-black" />
 			</div>
 			<div class="flex flex-col">
-				<span class="font-head text-xs uppercase tracking-wider text-black">Achievement Unlocked!</span>
+				<span class="font-head text-xs tracking-wider text-black uppercase"
+					>Achievement Unlocked!</span
+				>
 				<span class="font-head text-xl text-black">{currentNotification.title}</span>
-				<span class="font-sans text-xs font-medium text-black/70">{currentNotification.description}</span>
+				<span class="font-sans text-xs font-medium text-black/70"
+					>{currentNotification.description}</span
+				>
 			</div>
 		</div>
 	</div>
