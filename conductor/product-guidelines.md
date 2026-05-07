@@ -15,7 +15,8 @@
 
 ## UX Principles
 
-- **Speed First**: Minimal loading times and instantaneous feedback for player actions.
+- **Speed First**: Minimal loading times and instantaneous feedback for player actions. Use the most efficient algorithms to ensure 60fps performance and low battery drain.
+- **Component Standard**: Prioritize `shadcn-svelte` components from `src/lib/components/ui`. Install via CLI if missing. Do not rebuild standard UI primitives from scratch.
 - **Mobile Optimization**: Touch-friendly interface with clear, large interactive elements.
 - **Persistence**: Game state and history should be saved automatically and seamlessly.
 - **Feedback**: Provide clear visual and auditory (if applicable) cues for correct and incorrect answers.

@@ -234,6 +234,9 @@ Before requesting review:
 
 ## Commit Guidelines
 
+### Mandatory Convention
+All commits MUST follow the [Conventional Commits v1.0.0 specification](https://www.conventionalcommits.org/en/v1.0.0/).
+
 ### Message Format
 
 ```
@@ -310,6 +313,35 @@ A task is complete when:
 
 - [ ] All tests passing
 - [ ] Coverage >95%
+- [ ] No linting errors
+- [ ] Mobile testing complete
+- [ ] Environment variables configured
+- [ ] Backup created
+
+### Deployment Steps
+
+1. Merge feature branch to main
+2. Tag release with version
+3. Push to deployment service (Google Cloud Run)
+4. Verify deployment
+5. Test critical paths
+6. Monitor for errors
+
+### Post-Deployment
+
+1. Monitor analytics
+2. Check error logs
+3. Gather user feedback
+4. Plan next iteration
+
+## Continuous Improvement
+
+- Review workflow weekly
+- Update based on pain points
+- Document lessons learned
+- Optimize for user happiness
+- Keep things simple and maintainable
+%
 - [ ] No linting errors
 - [ ] Mobile testing complete
 - [ ] Environment variables configured
