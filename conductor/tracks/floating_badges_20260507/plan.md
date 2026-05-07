@@ -9,9 +9,9 @@ We will define a CSS keyframe animation (`float-bob`) in `src/routes/+page.svelt
 ## Phases
 
 ### Phase 1: CSS Animation Definition
-- [ ] Task: Define `@keyframes float-bob` in the `<style>` block of `src/routes/+page.svelte` using `transform: translateY()`.
-- [ ] Task: Create `.animate-float-1` and `.animate-float-2` classes with different animation durations or delays.
-- [ ] Task: Create a `.hover-snap` class that sets `animation-play-state: paused`, resets transform, and scales up on `:hover`.
+- [x] Task: Define `@keyframes float-bob` in the `<style>` block of `src/routes/+page.svelte` using `transform: translateY()`. (SHA: 58ee64a)
+- [x] Task: Create `.animate-float-1` and `.animate-float-2` classes with different animation durations or delays. (SHA: 58ee64a)
+- [x] Task: Create a `.hover-snap` class that sets `animation-play-state: paused`, resets transform, and scales up on `:hover`. (SHA: 58ee64a)
 - [ ] Task: Conductor - User Manual Verification 'CSS Animation Definition' (Protocol in workflow.md)
 
 ### Phase 2: Markup Integration
