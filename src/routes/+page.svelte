@@ -100,12 +100,12 @@
 			</div>
 
 			<div
-				class="absolute -top-4 left-20 border-2 border-black bg-accent px-4 py-2 font-head text-xs shadow-retro"
+				class="animate-float-1 hover-snap absolute -top-4 left-20 border-2 border-black bg-accent px-4 py-2 font-head text-xs shadow-retro"
 			>
 				FIZZ = %3
 			</div>
 			<div
-				class="absolute right-10 bottom-10 border-2 border-black bg-white px-4 py-2 font-head text-xs shadow-retro"
+				class="animate-float-2 hover-snap absolute right-10 bottom-10 border-2 border-black bg-white px-4 py-2 font-head text-xs shadow-retro"
 			>
 				BUZZ = %5
 			</div>

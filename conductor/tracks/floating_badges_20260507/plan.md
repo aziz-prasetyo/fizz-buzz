@@ -15,8 +15,8 @@ We will define a CSS keyframe animation (`float-bob`) in `src/routes/+page.svelt
 - [ ] Task: Conductor - User Manual Verification 'CSS Animation Definition' (Protocol in workflow.md)
 
 ### Phase 2: Markup Integration
-- [ ] Task: Apply `.animate-float-1` and `.hover-snap` to the "FIZZ = %3" badge in `src/routes/+page.svelte`.
-- [ ] Task: Apply `.animate-float-2` and `.hover-snap` to the "BUZZ = %5" badge.
+- [x] Task: Apply `.animate-float-1` and `.hover-snap` to the "FIZZ = %3" badge in `src/routes/+page.svelte`. (SHA: 41f7bf6)
+- [x] Task: Apply `.animate-float-2` and `.hover-snap` to the "BUZZ = %5" badge. (SHA: 41f7bf6)
 - [ ] Task: Conductor - User Manual Verification 'Markup Integration' (Protocol in workflow.md)
 
 ### Phase 3: Validation and Code Quality
