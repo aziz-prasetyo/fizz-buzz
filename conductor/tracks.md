@@ -9,7 +9,3 @@ This file tracks all major tracks for the project. Each track has its own detail
 - [x] **Track: Implement Local-First Achievement and Leveling System**
       _Link: [./tracks/achievements_20260506/](./tracks/achievements_20260506/)_
 
----
-
-- [~] **Track: Implement shimmer-from-structure Integration**
-      _Link: [./tracks/shimmer_integration_20260506/](./tracks/shimmer_integration_20260506/)_
