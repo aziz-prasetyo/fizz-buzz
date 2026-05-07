@@ -15,7 +15,7 @@
 - [ ] **Task: Conductor - User Manual Verification 'State Loading Strategy' (Protocol in workflow.md)**
 
 ## Phase 3: Shimmer Implementation
-- [ ] **Task: Write tests for Shimmer component rendering**
+- [~] **Task: Write tests for Shimmer component rendering**
 - [ ] **Task: Apply Shimmer to Profile Mission Statistics**
     - [ ] Wrap `Pilot Profile` stats in `Shimmer`.
 - [ ] **Task: Apply Shimmer to Game History List**
