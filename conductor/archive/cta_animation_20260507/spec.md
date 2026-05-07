@@ -7,10 +7,10 @@
 
 - **Visual Impact:** The button must stand out immediately through motion.
 - **Aesthetic:** Must adhere to the Neo-Brutalist (Retro UI) style (bold borders, high contrast, geometric).
-- **Behavior:** 
-    - Constant "Pulse" animation to draw the eye.
-    - Enhanced hover interaction.
-    - Tactile active state.
+- **Behavior:**
+  - Constant "Pulse" animation to draw the eye.
+  - Enhanced hover interaction.
+  - Tactile active state.
 - **Performance:** Animation must be performant (use CSS transforms/opacity).
 
 ## Proposed Animation: "Pulse & Glitch"

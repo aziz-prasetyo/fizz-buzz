@@ -15,15 +15,15 @@ This skill provides expertise in integrating `shimmer-from-structure` into Svelt
 
 ## Component API: `Shimmer`
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `loading` | `boolean` | `true` | Toggles between the shimmer effect and actual content. |
-| `children` | `Snippet` | `required` | The content to render/measure (Slot/Children). |
-| `templateProps` | `Record<string, unknown>` | `-` | Props to inject into the first child for skeleton rendering. |
-| `shimmerColor` | `string` | `'rgba(255,255,255,0.15)'` | Color of the moving shimmer wave. |
-| `backgroundColor` | `string` | `'rgba(255,255,255,0.08)'` | Background color of the shimmer blocks. |
-| `duration` | `number` | `1.5` | Animation duration in seconds. |
-| `fallbackBorderRadius` | `number` | `4` | Default radius (px) if no CSS border-radius is found. |
+| Prop                   | Type                      | Default                    | Description                                                  |
+| :--------------------- | :------------------------ | :------------------------- | :----------------------------------------------------------- |
+| `loading`              | `boolean`                 | `true`                     | Toggles between the shimmer effect and actual content.       |
+| `children`             | `Snippet`                 | `required`                 | The content to render/measure (Slot/Children).               |
+| `templateProps`        | `Record<string, unknown>` | `-`                        | Props to inject into the first child for skeleton rendering. |
+| `shimmerColor`         | `string`                  | `'rgba(255,255,255,0.15)'` | Color of the moving shimmer wave.                            |
+| `backgroundColor`      | `string`                  | `'rgba(255,255,255,0.08)'` | Background color of the shimmer blocks.                      |
+| `duration`             | `number`                  | `1.5`                      | Animation duration in seconds.                               |
+| `fallbackBorderRadius` | `number`                  | `4`                        | Default radius (px) if no CSS border-radius is found.        |
 
 ## Global Configuration
 
@@ -33,25 +33,29 @@ Use `setShimmerConfig` (usually in `+layout.svelte`) to define global defaults:
 import { setShimmerConfig } from '@shimmer-from-structure/svelte';
 
 setShimmerConfig({
-  shimmerColor: 'rgba(255, 219, 51, 0.4)',
-  backgroundColor: 'rgba(0, 0, 0, 0.1)',
-  duration: 2,
-  fallbackBorderRadius: 0 // Match Neo-Brutalist sharp corners
+	shimmerColor: 'rgba(255, 219, 51, 0.4)',
+	backgroundColor: 'rgba(0, 0, 0, 0.1)',
+	duration: 2,
+	fallbackBorderRadius: 0 // Match Neo-Brutalist sharp corners
 });
 ```
 
 ## Best Practices
 
 ### 1. Match Template Structure
+
 Ensure `templateProps` data has the same array lengths and property structures as real data. If you display 5 items, use `Array(5).fill(...)` to prevent layout shifts.
 
 ### 2. Independent Shimmers
+
 Wrap separate logical sections (Sidebar, Feed, Stats) in their own `Shimmer` components. This allows parts of the UI to hydrate independently.
 
 ### 3. Explicit Dimensions for Async Content
+
 If a component (like a chart or lazy image) has no initial dimensions, wrap it in a container with explicit `width` and `height`. Shimmer needs a layout to measure.
 
 ### 4. Attribute Controls
+
 - `data-shimmer-ignore`: Use for "LIVE" badges or static labels that should remain visible.
 - `data-shimmer-no-children`: Use to treat a complex metric row as a single unified shimmer block.
 
@@ -64,22 +68,23 @@ If a component (like a chart or lazy image) has no initial dimensions, wrap it i
 ## Usage Examples
 
 ### Stats Grid
+
 ```svelte
 <script>
-  import { Shimmer } from '@shimmer-from-structure/svelte';
-  const template = Array(3).fill({ label: 'Label', value: '000' });
-  let { stats, loading } = $props();
+	import { Shimmer } from '@shimmer-from-structure/svelte';
+	const template = Array(3).fill({ label: 'Label', value: '000' });
+	let { stats, loading } = $props();
 </script>
 
 <Shimmer {loading} templateProps={{ stats: template }}>
-  <div class="stats-grid">
-    {#each stats as stat}
-      <div class="card">
-        <p>{stat.label}</p>
-        <h3>{stat.value}</h3>
-      </div>
-    {/each}
-  </div>
+	<div class="stats-grid">
+		{#each stats as stat}
+			<div class="card">
+				<p>{stat.label}</p>
+				<h3>{stat.value}</h3>
+			</div>
+		{/each}
+	</div>
 </Shimmer>
 ```
 
