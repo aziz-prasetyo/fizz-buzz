@@ -20,8 +20,6 @@ export class GameState {
 		this.notificationQueue = [];
 		if (browser) {
 			this.hydrate();
-		} else {
-			this.loading = false;
 		}
 	}
 

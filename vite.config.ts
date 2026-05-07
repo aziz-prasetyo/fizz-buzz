@@ -5,4 +5,7 @@ import { svelteTesting } from '@testing-library/svelte/vite';
 
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit(), svelteTesting()],
+	ssr: {
+		noExternal: ['@shimmer-from-structure/svelte']
+	}
 });
