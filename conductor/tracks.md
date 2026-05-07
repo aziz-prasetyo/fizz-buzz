@@ -13,5 +13,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Add a floating animation for the "FIZZ = %3" and "BUZZ = %5" components.**
+- [x] **Track: Add a floating animation for the "FIZZ = %3" and "BUZZ = %5" components.**
 *Link: [./tracks/floating_badges_20260507/](./tracks/floating_badges_20260507/)*
