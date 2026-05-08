@@ -49,10 +49,10 @@
 				<Button
 					href="/game"
 					variant="default"
-					class="cta-animate group relative h-auto w-full border-4 border-black px-8 py-6 text-2xl shadow-xl transition-all hover:-translate-y-1 active:translate-y-1 active:shadow-none md:px-12 md:py-8 md:text-3xl"
+					class="cta-animate group relative h-auto w-full border-4 border-black px-8 py-6 text-2xl shadow-xl transition-all hover:translate-y-0 active:translate-y-1 active:shadow-none md:px-12 md:py-8 md:text-3xl"
 				>
 					<PlayIcon
-						class="mr-3 size-8 transition-transform group-hover:scale-110 group-active:scale-95"
+						class="mr-3 size-8 transition-transform group-hover:scale-150"
 					/>
 					PLAY NOW
 				</Button>
@@ -91,7 +91,7 @@
 							<div class="text-4xl text-white">MISSION</div>
 							<div class="flex gap-2">
 								<div class="h-4 w-full bg-white/20">
-									<div class="h-full w-2/3 animate-pulse bg-primary"></div>
+									<div class="h-full w-2/3 bg-primary"></div>
 								</div>
 							</div>
 						</div>
@@ -100,12 +100,12 @@
 			</div>
 
 			<div
-				class="animate-float-1 hover-snap absolute -top-4 left-20 border-2 border-black bg-accent px-4 py-2 font-head text-xs shadow-retro"
+				class="animate-float-1 absolute -top-4 left-20 border-2 border-black bg-accent px-4 py-2 font-head text-xs shadow-retro"
 			>
 				FIZZ = %3
 			</div>
 			<div
-				class="animate-float-2 hover-snap absolute right-10 bottom-10 border-2 border-black bg-white px-4 py-2 font-head text-xs shadow-retro"
+				class="animate-float-2 absolute right-10 bottom-10 border-2 border-black bg-white px-4 py-2 font-head text-xs shadow-retro"
 			>
 				BUZZ = %5
 			</div>
@@ -162,7 +162,7 @@
 	}
 
 	:global(.cta-animate) {
-		animation: neo-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+		animation: neo-pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 		position: relative;
 		overflow: hidden !important;
 	}
@@ -187,7 +187,7 @@
 			filter: brightness(1);
 		}
 		50% {
-			transform: scale(1.02);
+			transform: scale(1.1);
 			filter: brightness(1.1);
 		}
 	}
@@ -221,18 +221,5 @@
 	.animate-float-2 {
 		animation: float-bob 4s ease-in-out infinite;
 		animation-delay: -1.5s;
-	}
-
-	.hover-snap {
-		transition:
-			transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-			box-shadow 0.2s ease;
-	}
-
-	.hover-snap:hover {
-		animation-play-state: paused;
-		transform: translateY(0) scale(1.1) !important;
-		box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 1);
-		z-index: 50;
 	}
 </style>

@@ -51,23 +51,20 @@
 	<!-- Main Header / Navigation -->
 	<div
 		class={cn(
-			'sticky top-0 z-30 w-full transition-all duration-500',
+			'sticky top-0 z-30 w-full transition-all duration-300 ease-in-out',
 			isFloating ? 'top-4 px-2 md:px-4' : 'p-0'
 		)}
 	>
 		<header
 			class={cn(
-				'relative border-2 border-black bg-background px-4 py-2 transition-all duration-500 md:p-4',
+				'relative mx-auto w-full border-2 border-black bg-background px-4 py-2 transition-all duration-500 ease-in-out md:p-4',
 				isFloating
-					? 'mx-auto max-w-6xl rounded-2xl shadow-retro'
-					: 'max-w-none rounded-none border-transparent border-b-black'
+					? 'max-w-7xl rounded-2xl shadow-retro'
+					: 'max-w-full rounded-none border-transparent border-b-black'
 			)}
 		>
 			<div
-				class={cn(
-					'mx-auto flex items-center justify-between transition-all duration-500',
-					isFloating ? 'w-full' : 'max-w-6xl'
-				)}
+				class="mx-auto flex max-w-6xl items-center justify-between"
 			>
 				<a
 					href={resolve('/')}
@@ -118,9 +115,9 @@
 
 	<!-- Footer -->
 	<footer
-		class="relative z-30 flex flex-col justify-center gap-2 border-t-2 border-black bg-background px-4 py-6 text-center font-head text-[8px] tracking-[0.2em] uppercase opacity-60 md:flex-row md:py-10 md:text-[10px]"
+		class="relative z-30 flex flex-col justify-center gap-2 border-t-2 border-black bg-background px-4 py-6 text-center text-muted font-head text-[8px] tracking-[0.2em] uppercase md:flex-row md:py-10 md:text-[10px]"
 	>
-		<span>&copy; izprstyo 2026.</span>
+		<span class="text-foreground">&copy; izprstyo 2026.</span>
 		<span>Make it FIZZ, make it BUZZ, make it FUN!</span>
 	</footer>
 </div>
