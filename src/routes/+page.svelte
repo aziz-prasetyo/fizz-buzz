@@ -23,11 +23,15 @@
 		<!-- About Section Placeholder -->
 		<Card.Root class="border-4 border-black shadow-retro transition-transform hover:-translate-y-1">
 			<Card.Header>
-				<div class="mb-2 flex size-12 items-center justify-center border-2 border-black bg-primary shadow-retro">
+				<div
+					class="mb-2 flex size-12 items-center justify-center border-2 border-black bg-primary shadow-retro"
+				>
 					<InfoIcon class="size-6" />
 				</div>
 				<Card.Title class="font-head uppercase">About</Card.Title>
-				<Card.Description class="font-sans font-bold text-black/60">What is Fizz Buzz?</Card.Description>
+				<Card.Description class="font-sans font-bold text-black/60"
+					>What is Fizz Buzz?</Card.Description
+				>
 			</Card.Header>
 			<Card.Content>
 				<p class="font-sans text-sm leading-tight">
@@ -39,11 +43,15 @@
 		<!-- How to Play Section Placeholder -->
 		<Card.Root class="border-4 border-black shadow-retro transition-transform hover:-translate-y-1">
 			<Card.Header>
-				<div class="mb-2 flex size-12 items-center justify-center border-2 border-black bg-secondary shadow-retro">
+				<div
+					class="mb-2 flex size-12 items-center justify-center border-2 border-black bg-secondary shadow-retro"
+				>
 					<BookOpenIcon class="size-6 text-white" />
 				</div>
 				<Card.Title class="font-head uppercase">How to Play</Card.Title>
-				<Card.Description class="font-sans font-bold text-black/60">Rules of survival</Card.Description>
+				<Card.Description class="font-sans font-bold text-black/60"
+					>Rules of survival</Card.Description
+				>
 			</Card.Header>
 			<Card.Content>
 				<p class="font-sans text-sm leading-tight">
@@ -55,11 +63,14 @@
 		<!-- Features Section Placeholder -->
 		<Card.Root class="border-4 border-black shadow-retro transition-transform hover:-translate-y-1">
 			<Card.Header>
-				<div class="mb-2 flex size-12 items-center justify-center border-2 border-black bg-accent shadow-retro">
+				<div
+					class="mb-2 flex size-12 items-center justify-center border-2 border-black bg-accent shadow-retro"
+				>
 					<StarIcon class="size-6" />
 				</div>
 				<Card.Title class="font-head uppercase">Features</Card.Title>
-				<Card.Description class="font-sans font-bold text-black/60">Why play this?</Card.Description>
+				<Card.Description class="font-sans font-bold text-black/60">Why play this?</Card.Description
+				>
 			</Card.Header>
 			<Card.Content>
 				<p class="font-sans text-sm leading-tight">
@@ -71,16 +82,18 @@
 		<!-- Leaderboard Preview Placeholder -->
 		<Card.Root class="border-4 border-black shadow-retro transition-transform hover:-translate-y-1">
 			<Card.Header>
-				<div class="mb-2 flex size-12 items-center justify-center border-2 border-black bg-destructive shadow-retro">
+				<div
+					class="mb-2 flex size-12 items-center justify-center border-2 border-black bg-destructive shadow-retro"
+				>
 					<TrophyIcon class="size-6 text-white" />
 				</div>
 				<Card.Title class="font-head uppercase">Records</Card.Title>
-				<Card.Description class="font-sans font-bold text-black/60">Top Local Heroes</Card.Description>
+				<Card.Description class="font-sans font-bold text-black/60"
+					>Top Local Heroes</Card.Description
+				>
 			</Card.Header>
 			<Card.Content>
-				<p class="font-sans text-sm leading-tight italic">
-					Play now to claim your spot!
-				</p>
+				<p class="font-sans text-sm leading-tight italic">Play now to claim your spot!</p>
 			</Card.Content>
 		</Card.Root>
 	</div>
@@ -124,9 +137,7 @@
 					variant="default"
 					class="cta-animate group relative h-auto w-full border-4 border-black px-8 py-6 text-2xl shadow-xl transition-all hover:translate-y-0 active:translate-y-1 active:shadow-none md:px-12 md:py-8 md:text-3xl"
 				>
-					<PlayIcon
-						class="mr-3 size-8 transition-transform group-hover:scale-150"
-					/>
+					<PlayIcon class="mr-3 size-8 transition-transform group-hover:scale-150" />
 					PLAY NOW
 				</Button>
 			</div>

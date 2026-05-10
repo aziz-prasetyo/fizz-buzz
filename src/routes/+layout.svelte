@@ -63,9 +63,7 @@
 					: 'max-w-full rounded-none border-transparent border-b-black'
 			)}
 		>
-			<div
-				class="mx-auto flex max-w-6xl items-center justify-between"
-			>
+			<div class="mx-auto flex max-w-6xl items-center justify-between">
 				<a
 					href={resolve('/')}
 					class="inline-flex aspect-square items-center gap-2 rounded-full border-2 border-black bg-primary p-0.5 font-head text-[10px] shadow-retro md:p-2 md:text-xs"
@@ -115,7 +113,7 @@
 
 	<!-- Footer -->
 	<footer
-		class="relative z-30 flex flex-col justify-center gap-2 border-t-2 border-black bg-background px-4 py-6 text-center text-muted font-head text-[8px] tracking-[0.2em] uppercase md:flex-row md:py-10 md:text-[10px]"
+		class="relative z-30 flex flex-col justify-center gap-2 border-t-2 border-black bg-background px-4 py-6 text-center font-head text-[8px] tracking-[0.2em] text-muted uppercase md:flex-row md:py-10 md:text-[10px]"
 	>
 		<span class="text-foreground">&copy; izprstyo 2026.</span>
 		<span>Make it FIZZ, make it BUZZ, make it FUN!</span>

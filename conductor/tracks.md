@@ -11,5 +11,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Enhance Home Page Content**
-*Link: [./tracks/home_sections_20260510/](./tracks/home_sections_20260510/)*
+- [~] **Track: Enhance Home Page Content**
+  _Link: [./tracks/home_sections_20260510/](./tracks/home_sections_20260510/)_
