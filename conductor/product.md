@@ -25,6 +25,7 @@ To provide a simple yet addictive browser-based gaming experience that rewards q
 - **Advanced Scoring**: Combo system with multipliers for consecutive correct answers.
 - **Progression System**: Achievement badges and Leveling system based on accumulated XP.
 - **Local-First Persistence**: High scores, game history, and progression data are stored locally in the browser's `localStorage`.
+- **Informative Home Experience**: Scannable cards providing immediate context, game rules, and high score previews before playing.
 - **Structure-aware loading placeholders**: Provides seamless user experience during data hydration.
 - **Polished Responsive UI**: Optimized for both mobile and desktop play with a modern, clean aesthetic.
 - **Deployment Ready**: Fully containerized for easy deployment to platforms like Google Cloud Run.
