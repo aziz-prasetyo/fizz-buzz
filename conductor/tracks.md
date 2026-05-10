@@ -14,3 +14,8 @@ This file tracks all major tracks for the project. Each track has its own detail
 - [x] **Track: Enhance Home Page Content**
 *Link: [./tracks/home_sections_20260510/](./tracks/home_sections_20260510/)*
 
+---
+
+- [ ] **Track: Fix 500 error in Home page**
+*Link: [./tracks/fix_home_500_error_20260510/](./tracks/fix_home_500_error_20260510/)*
+
