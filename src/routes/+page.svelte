@@ -20,7 +20,7 @@
 
 	<!-- New Sections Container -->
 	<div class="relative z-10 mb-20 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-		<!-- About Section Placeholder -->
+		<!-- About Section -->
 		<Card.Root class="border-4 border-black shadow-retro transition-transform hover:-translate-y-1">
 			<Card.Header>
 				<div
@@ -28,19 +28,20 @@
 				>
 					<InfoIcon class="size-6" />
 				</div>
-				<Card.Title class="font-head uppercase">About</Card.Title>
+				<Card.Title class="font-head text-2xl uppercase">About</Card.Title>
 				<Card.Description class="font-sans font-bold text-black/60"
-					>What is Fizz Buzz?</Card.Description
+					>The Survival Challenge</Card.Description
 				>
 			</Card.Header>
 			<Card.Content>
 				<p class="font-sans text-sm leading-tight">
-					A high-intensity mathematical survival challenge based on the classic counting game.
+					Fizz Buzz is a high-intensity survival game that tests your mental agility. Originally a
+					simple coding task, now a high-stakes race against time.
 				</p>
 			</Card.Content>
 		</Card.Root>
 
-		<!-- How to Play Section Placeholder -->
+		<!-- How to Play Section -->
 		<Card.Root class="border-4 border-black shadow-retro transition-transform hover:-translate-y-1">
 			<Card.Header>
 				<div
@@ -48,19 +49,31 @@
 				>
 					<BookOpenIcon class="size-6 text-white" />
 				</div>
-				<Card.Title class="font-head uppercase">How to Play</Card.Title>
+				<Card.Title class="font-head text-2xl uppercase">How to Play</Card.Title>
 				<Card.Description class="font-sans font-bold text-black/60"
-					>Rules of survival</Card.Description
+					>Rules of Engagement</Card.Description
 				>
 			</Card.Header>
 			<Card.Content>
-				<p class="font-sans text-sm leading-tight">
-					%3 = Fizz, %5 = Buzz, %15 = FizzBuzz. Don't stop counting!
-				</p>
+				<ul class="space-y-2 font-sans text-xs font-bold uppercase">
+					<li class="flex items-center gap-2">
+						<Badge variant="outline" class="border-black bg-accent text-[8px]">FIZZ</Badge> Multiples
+						of 3
+					</li>
+					<li class="flex items-center gap-2">
+						<Badge variant="outline" class="border-black bg-primary text-[8px]">BUZZ</Badge>
+						Multiples of 5
+					</li>
+					<li class="flex items-center gap-2">
+						<Badge variant="outline" class="border-black bg-destructive text-[8px] text-white"
+							>FIZZBUZZ</Badge
+						> Both!
+					</li>
+				</ul>
 			</Card.Content>
 		</Card.Root>
 
-		<!-- Features Section Placeholder -->
+		<!-- Features Section -->
 		<Card.Root class="border-4 border-black shadow-retro transition-transform hover:-translate-y-1">
 			<Card.Header>
 				<div
@@ -68,18 +81,22 @@
 				>
 					<StarIcon class="size-6" />
 				</div>
-				<Card.Title class="font-head uppercase">Features</Card.Title>
-				<Card.Description class="font-sans font-bold text-black/60">Why play this?</Card.Description
+				<Card.Title class="font-head text-2xl uppercase">Features</Card.Title>
+				<Card.Description class="font-sans font-bold text-black/60"
+					>Power Up Your Game</Card.Description
 				>
 			</Card.Header>
 			<Card.Content>
-				<p class="font-sans text-sm leading-tight">
-					Combos, XP progression, and achievements for the ultimate master.
-				</p>
+				<ul class="space-y-1 font-sans text-xs leading-tight">
+					<li>⚡ <span class="font-bold">Dynamic Timer:</span> Faster as you go.</li>
+					<li>🔥 <span class="font-bold">Combos:</span> Multiply your score.</li>
+					<li>🏆 <span class="font-bold">Achievements:</span> Earn your glory.</li>
+				</ul>
 			</Card.Content>
 		</Card.Root>
 
-		<!-- Leaderboard Preview Placeholder -->
+		<!-- Leaderboard Preview -->
+
 		<Card.Root class="border-4 border-black shadow-retro transition-transform hover:-translate-y-1">
 			<Card.Header>
 				<div
