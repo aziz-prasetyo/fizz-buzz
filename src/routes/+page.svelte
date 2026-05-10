@@ -1,18 +1,91 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
 	import { Badge } from '$lib/components/ui/badge';
+	import * as Card from '$lib/components/ui/card';
 	import PlayIcon from '@lucide/svelte/icons/play';
 	import RocketIcon from '@lucide/svelte/icons/rocket';
 	import ZapIcon from '@lucide/svelte/icons/zap';
+	import InfoIcon from '@lucide/svelte/icons/info';
+	import BookOpenIcon from '@lucide/svelte/icons/book-open';
+	import TrophyIcon from '@lucide/svelte/icons/trophy';
+	import StarIcon from '@lucide/svelte/icons/star';
 </script>
 
-<div class="flex min-h-[calc(100vh-200px)] flex-col items-center justify-center py-8 md:py-12">
+<div class="flex flex-col items-center py-8 md:py-12">
 	<!-- Background Decorations -->
 	<div
 		class="pointer-events-none absolute inset-0 z-0 opacity-10"
 		style="background-image: radial-gradient(var(--primary) 1px, transparent 1px); background-size: 20px 20px;"
 	></div>
 
+	<!-- New Sections Container -->
+	<div class="relative z-10 mb-20 grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+		<!-- About Section Placeholder -->
+		<Card.Root class="border-4 border-black shadow-retro transition-transform hover:-translate-y-1">
+			<Card.Header>
+				<div class="mb-2 flex size-12 items-center justify-center border-2 border-black bg-primary shadow-retro">
+					<InfoIcon class="size-6" />
+				</div>
+				<Card.Title class="font-head uppercase">About</Card.Title>
+				<Card.Description class="font-sans font-bold text-black/60">What is Fizz Buzz?</Card.Description>
+			</Card.Header>
+			<Card.Content>
+				<p class="font-sans text-sm leading-tight">
+					A high-intensity mathematical survival challenge based on the classic counting game.
+				</p>
+			</Card.Content>
+		</Card.Root>
+
+		<!-- How to Play Section Placeholder -->
+		<Card.Root class="border-4 border-black shadow-retro transition-transform hover:-translate-y-1">
+			<Card.Header>
+				<div class="mb-2 flex size-12 items-center justify-center border-2 border-black bg-secondary shadow-retro">
+					<BookOpenIcon class="size-6 text-white" />
+				</div>
+				<Card.Title class="font-head uppercase">How to Play</Card.Title>
+				<Card.Description class="font-sans font-bold text-black/60">Rules of survival</Card.Description>
+			</Card.Header>
+			<Card.Content>
+				<p class="font-sans text-sm leading-tight">
+					%3 = Fizz, %5 = Buzz, %15 = FizzBuzz. Don't stop counting!
+				</p>
+			</Card.Content>
+		</Card.Root>
+
+		<!-- Features Section Placeholder -->
+		<Card.Root class="border-4 border-black shadow-retro transition-transform hover:-translate-y-1">
+			<Card.Header>
+				<div class="mb-2 flex size-12 items-center justify-center border-2 border-black bg-accent shadow-retro">
+					<StarIcon class="size-6" />
+				</div>
+				<Card.Title class="font-head uppercase">Features</Card.Title>
+				<Card.Description class="font-sans font-bold text-black/60">Why play this?</Card.Description>
+			</Card.Header>
+			<Card.Content>
+				<p class="font-sans text-sm leading-tight">
+					Combos, XP progression, and achievements for the ultimate master.
+				</p>
+			</Card.Content>
+		</Card.Root>
+
+		<!-- Leaderboard Preview Placeholder -->
+		<Card.Root class="border-4 border-black shadow-retro transition-transform hover:-translate-y-1">
+			<Card.Header>
+				<div class="mb-2 flex size-12 items-center justify-center border-2 border-black bg-destructive shadow-retro">
+					<TrophyIcon class="size-6 text-white" />
+				</div>
+				<Card.Title class="font-head uppercase">Records</Card.Title>
+				<Card.Description class="font-sans font-bold text-black/60">Top Local Heroes</Card.Description>
+			</Card.Header>
+			<Card.Content>
+				<p class="font-sans text-sm leading-tight italic">
+					Play now to claim your spot!
+				</p>
+			</Card.Content>
+		</Card.Root>
+	</div>
+
+	<!-- Hero Section -->
 	<div class="relative z-10 grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-2">
 		<!-- Left Column: Content -->
 		<div class="flex flex-col items-start space-y-8 text-left">
