@@ -10,16 +10,19 @@
 	import HomeIcon from '@lucide/svelte/icons/home';
 	import HistoryIcon from '@lucide/svelte/icons/history';
 	import { setShimmerConfig } from '@shimmer-from-structure/svelte';
+	import { browser } from '$app/environment';
 
 	let { children } = $props();
 
 	// Global Shimmer Configuration (Neo-Brutalist Style)
-	setShimmerConfig({
-		shimmerColor: 'rgba(255, 219, 51, 0.4)', // --primary opacity
-		backgroundColor: 'rgba(0, 0, 0, 0.1)',
-		duration: 2,
-		fallbackBorderRadius: 0 // Sharp corners
-	});
+	if (browser) {
+		setShimmerConfig({
+			shimmerColor: 'rgba(255, 219, 51, 0.4)', // --primary opacity
+			backgroundColor: 'rgba(0, 0, 0, 0.1)',
+			duration: 2,
+			fallbackBorderRadius: 0 // Sharp corners
+		});
+	}
 
 	let scrollY = $state(0);
 	let isFloating = $derived(scrollY > 50);

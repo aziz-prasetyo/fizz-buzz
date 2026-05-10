@@ -4,6 +4,7 @@
 	import * as Card from '$lib/components/ui/card';
 	import { gameState } from '$lib/state.svelte';
 	import { Shimmer } from '@shimmer-from-structure/svelte';
+	import { browser } from '$app/environment';
 	import PlayIcon from '@lucide/svelte/icons/play';
 	import RocketIcon from '@lucide/svelte/icons/rocket';
 	import ZapIcon from '@lucide/svelte/icons/zap';
@@ -112,39 +113,46 @@
 				>
 			</Card.Header>
 			<Card.Content>
-				<Shimmer loading={gameState.loading}>
-					<div class="space-y-4">
-						<div class="flex items-center justify-between border-b-2 border-black/10 pb-2">
-							<span class="font-head text-xs uppercase text-black/40">High Score</span>
-							<span class="font-head text-xl text-primary">{gameState.highScore}</span>
-						</div>
-
-						{#if gameState.history.length > 0}
-							<div class="space-y-1">
-								<span class="font-head text-[10px] uppercase text-black/40">Recent Run</span>
-								<div class="flex items-center justify-between font-sans text-xs font-bold">
-									<span>{new Date(gameState.history[0].date).toLocaleDateString()}</span>
-									<Badge variant="outline" class="border-black bg-secondary text-white"
-										>{gameState.history[0].score}</Badge
-									>
-								</div>
+				{#if browser}
+					<Shimmer loading={gameState.loading}>
+						<div class="space-y-4">
+							<div class="flex items-center justify-between border-b-2 border-black/10 pb-2">
+								<span class="font-head text-xs uppercase text-black/40">High Score</span>
+								<span class="font-head text-xl text-primary">{gameState.highScore}</span>
 							</div>
-						{:else}
-							<p class="font-sans text-xs leading-tight italic text-black/40">
-								No missions logged yet. Ready to start?
-							</p>
-						{/if}
 
-						<Button
-							href="/history"
-							variant="outline"
-							class="h-8 w-full border-2 border-black font-head text-[10px] shadow-retro hover:bg-primary"
-						>
-							VIEW ALL HISTORY
-							<ArrowRightIcon class="ml-2 size-3" />
-						</Button>
+							{#if gameState.history.length > 0}
+								<div class="space-y-1">
+									<span class="font-head text-[10px] uppercase text-black/40">Recent Run</span>
+									<div class="flex items-center justify-between font-sans text-xs font-bold">
+										<span>{new Date(gameState.history[0].date).toLocaleDateString()}</span>
+										<Badge variant="outline" class="border-black bg-secondary text-white"
+											>{gameState.history[0].score}</Badge
+										>
+									</div>
+								</div>
+							{:else}
+								<p class="font-sans text-xs leading-tight italic text-black/40">
+									No missions logged yet. Ready to start?
+								</p>
+							{/if}
+
+							<Button
+								href="/history"
+								variant="outline"
+								class="h-8 w-full border-2 border-black font-head text-[10px] shadow-retro hover:bg-primary"
+							>
+								VIEW ALL HISTORY
+								<ArrowRightIcon class="ml-2 size-3" />
+							</Button>
+						</div>
+					</Shimmer>
+				{:else}
+					<div class="space-y-4 opacity-50">
+						<div class="h-10 w-full bg-black/10 animate-pulse"></div>
+						<div class="h-20 w-full bg-black/5 animate-pulse"></div>
 					</div>
-				</Shimmer>
+				{/if}
 			</Card.Content>
 		</Card.Root>
 	</div>

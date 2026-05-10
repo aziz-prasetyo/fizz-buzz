@@ -16,6 +16,6 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [ ] **Track: Fix 500 error in Home page**
+- [x] **Track: Fix 500 error in Home page**
 *Link: [./tracks/fix_home_500_error_20260510/](./tracks/fix_home_500_error_20260510/)*
 
